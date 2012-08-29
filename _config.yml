@@ -1,8 +1,6 @@
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto:          true
-
-markdown:         rdiscount
 pygments:         true
 paginate:         6
 permalink:        /:categories/:year/:month/:day/:title 
@@ -11,6 +9,7 @@ title:            Reduci.com
 feed:             /atom.xml
 author:
     name:         Reduci
+    twitter:      twitter.com/legendsland
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
 # Most places will/should use BASE_PATH to make the urls
@@ -69,7 +68,6 @@ JB :
     
 production_url:  http://legendsland.guthub.com
 
-    twitter:      twitter.com/legendsland
 description:      "Reduci\'s Blog"
 author_info:      <a href="http://legendsland.github.com/about">Reduci</a>
 
