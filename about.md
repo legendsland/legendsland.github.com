@@ -2,7 +2,7 @@
 layout: page
 title: About Reduci
 ---
-# [About me][]
+# [Me][]
 
-Hi, I am Reduci, a passinate programmer transforming ideas into products.
+I am Reduci, a passinate programmer transforming ideas into real products. I love travelling, programming and writing. I am now living in Shenzhen, China.
 
