@@ -1,16 +1,8 @@
-
-
-
-
-
-
-
 ---
 layout: page
-title: About BeiYuu
+title: About Reduci
 ---
-# [About]
+# [About me][]
 
 Hi, I am Reduci, a passinate programmer transforming ideas into products.
-
 

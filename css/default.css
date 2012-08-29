@@ -7,7 +7,7 @@
 
 /* 重置浏览器CSS */
 /* 防止用户自定义背景颜色对网页的影响 */
-html{color:#000;background:#F8F8F0;}
+html{color:#000;background:#ddd;}
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;}
 /* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
@@ -50,7 +50,7 @@ body .hide{display:none;}
 
 
 /***********default settings**********/
-body {font-family: "微软雅黑","Times New Roman", Times, serif;font-size:16px;background:#F8F8F0}
+body {font-family: "微软雅黑","Times New Roman", Times, serif;font-size:16px;background:#ddd}
 a {color:#4A75B5;text-decoration:none;outline:none;}
 a:hover {text-decoration:underline}
 a.external {padding-right:13px;background:url('/images/icons.gif') no-repeat right 1px;}
@@ -103,7 +103,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 #head .logo a:hover {text-decoration:none;color:#666;}
 #head .logo a:active {position:relative;top:1px;opacity:0.9;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=90)";filter:alpha(opacity=90);}
 #head .nav {margin-top:30px;}
-#head .nav a {margin-right:10px;font-size:15px;font-weight:bold;color:#E50053}
+#head .nav a {margin-right:10px;font-size:15px;font-weight:bold;color:red}
 
 /****************entry style**************/
 #content .entry{margin-bottom:50px;}
@@ -115,7 +115,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 /***************category style**************/
 .category h2{font-size:19px;}
 .category h2 a{color:#444}
-.category h2 a:hover {color:#E50053;text-decoration:none;}
+.category h2 a:hover {color:red;text-decoration:none;}
 .category li{display:-moz-inline-stack;display:inline-block;*display:inline;width:230px;margin-bottom:30px;zoom:1;padding:10px 45px;vertical-align:middle;text-align:center;}
 .category span{color:#777;font-style:italic;font-size:14px;display:block;text-align:left}
 
@@ -129,7 +129,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 #disqus_container a.comment{font-size:14px;}
 #footer .copyright {margin-top:15px;font-size:10px;font-color:#ccc;text-align:center}
 h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
-.about-link a {margin-right:10px;font-weight:bold;font-style:italic;font-size:13px;color:#E50053}
+.about-link a {margin-right:10px;font-weight:bold;font-style:italic;font-size:13px;color:red}
 /**************目录导航**************/
 #menuIndex {position:fixed;top:60px;right:20px;width:250px;overflow:auto}
 #menuIndex a {display:block}
