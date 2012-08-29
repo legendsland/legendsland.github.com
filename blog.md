@@ -13,4 +13,10 @@ title: Blog
         </li>
     {% endfor %}
     </ul>
+
+<ul>
+  {% assign categories_list = site.categories %}
+  {% include JB/categories_list %}
+</ul>
+
 </div><!-- .entry -->
