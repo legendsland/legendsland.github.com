@@ -3,11 +3,9 @@ layout: page
 title: Code
 ---
 
-Under Construction...
-
-<!--div class="category">
+<div class="category">
     <ul>
-    {% for post in site.categories.project %}
+    {% for post in site.categories.code %}
         <li>
             <h2>
             	<a href="{{ post.url }}">{{ post.title }}</a>
@@ -16,4 +14,4 @@ Under Construction...
         </li>
     {% endfor %}
     </ul>
-</div--><!-- .entry -->
+</div><!-- .entry -->
