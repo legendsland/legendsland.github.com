@@ -39,3 +39,8 @@ Github: <https://github.com/legendsland>
 
 [@reduci]: http://weibo.com/legendsland
 
+
+
+{% include themes/default/comment.html %}
+
+
