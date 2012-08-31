@@ -5,7 +5,7 @@ pygments:         true
 paginate:         6
 permalink:        /:categories/:year/:month/:day/:title 
 
-title:            Reduci.com
+title:            Reduci.net
 feed:             /atom.xml
 author:
     name:         Reduci
@@ -18,7 +18,7 @@ author:
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://legendsland.github.com
+production_url : http://reduci.net
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -66,8 +66,7 @@ JB :
   categories_path : /categories.html
   tags_path : /tags.html
     
-production_url:  http://legendsland.guthub.com
 
 description:      "Reduci\'s Blog"
-author_info:      <a href="http://legendsland.github.com/about">Reduci</a>
+author_info:      <a href="http://reduci.net/about">Reduci</a>
 
