@@ -1,15 +1,25 @@
 ---
 layout: page
-title: Link
+title: 他们说
+category: link
 ---
-    {% for post in site.categories.link %}
-        <div class="row-fluid">
-            <h2>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            </h2>
-            <small>{{ post.description }}</small>
-        </div>
-    {% endfor %}
+
+<h3>
+{{ page.title }} <small> | 直指人心的文字、观点、故事 </small>
+</h3>
+
+
+{% for post in site.categories.link %}
+    <div class="row-fluid">
+        <div class="span6"><h4>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h4></div>
+        <div class="pull-right"><ul class="tag_box inline">
+          {% assign tags_list = post.tags %}
+          {% include JB/tags_list %}
+        </ul></div>
+    </div>
+{% endfor %}
 
 
 

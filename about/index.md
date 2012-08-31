@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+category: about
 ---
 
 ### who
@@ -15,7 +16,7 @@ I am writing my English blog on this site. Articles are mainly about programming
 
 
 ### meaning of reduci
-A Italian word refers a person who has had long experience in a particular field. Forget about it.
+An Italian word refers a person who has had long experience in a particular field. Forget about it.
 
 Reduci*(redoochi)* is abbr for reducing ideas to code:
 <code>(reduce code ideas)</code>.

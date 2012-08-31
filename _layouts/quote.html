@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<h3>{{ page.title  }}</h3>
+
+{% if page.image != null %}
+  <img src="{{ page.image }}"></img>
+{% endif %}
+<blockquote>
+  <p>
+  {{ page.content }}
+  </p>
+  <small><cite><i><a href="{{ page.href  }}">{{ page.desp  }}</a></i></cite></small>
+</blockquote>
+
+<small>
+  <i class="icon-pencil"></i> {{ page.note }}
+</small>
+
+
+
+
+
+
+

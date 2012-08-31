@@ -47,6 +47,8 @@ html, body {
 	margin: 2px;
 	background: #eee;
 	color:#005F6B;
+  border-radius: 3px;
+  border:1px dashed #ccc;
 	border-radius: 3px;
 	text-decoration:none;
 }
@@ -59,4 +61,18 @@ html, body {
 	border:1px solid #4C964D;
 	color:#FFF;
 }
+
+
+/* LANDING PAGE ================================================= */
+.highlight-wrap span{ background:#FFFFCC }
+
+#tab-list li a {
+  font-size:14px;
+  font-weight:bold;
+}
+#tab-content-wrapper {
+  min-height:190px;
+}
+
+
 	
