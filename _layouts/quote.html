@@ -2,6 +2,30 @@
 layout: default
 ---
 
+
+<ul class="pager pull-right zh">
+{% if page.previous %}
+  {% if page.previous.category == 'link' %}
+    <li><a href="{{ page.previous.url }}">&lt;&lt;</a></li>
+  {% else %}
+    <li class="disabled"><a href="#">&lt;&lt;</a></li>
+  {% endif %}
+{% else %}
+  <li class="disabled"><a href="#">&lt;&lt;</a></li>
+{% endif %}
+
+{% if page.next %}  
+  {% if page.next.category == 'link' %}
+    <li><a href="{{ page.next.url }}">&gt;&gt;</a></li>
+  {% else %}
+    <li class="disabled"><a href="#">&gt;&gt;</a></li>
+  {% endif %}
+{% else %}
+  <li class="disabled"><a href="#">&gt;&gt;</a></li>
+{% endif %}
+</ul>
+
+
 <h3 class="zh">{{ page.title  }}</h3>
 
 {% if page.image != null %}
@@ -14,12 +38,10 @@ layout: default
   <small><cite class="zh"><i><a href="{{ page.href  }}">{{ page.desp  }}</a></i></cite></small>
 </blockquote>
 
-<i class="icon-pencil"></i><span class="zh"> {{ page.note }}</span>
+<div class="zh"><i class="icon-pencil"></i> {{ page.note }}</div>
 
 
-<div class="hr-line">
-  <hr />
-</div>
+<div class="hr-line"><hr /></div>
 
 
 {% include themes/default/comment.html %}
