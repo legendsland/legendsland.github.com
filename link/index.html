@@ -4,7 +4,7 @@ title: 他们说
 category: link
 ---
 
-<h3>
+<h3 class="zh">
 {{ page.title }} <small> | 直指人心的文字、观点、故事 </small>
 </h3>
 
@@ -13,7 +13,7 @@ category: link
     <div class="row-fluid">
         <div class="span6">
         <h4>
-          <a href="{{ post.url }}"><small>{{ post.date  | date: "%m/%d/%Y" }}</small>  {{ post.title }}</a>
+          <a href="{{ post.url }}"><small>{{ post.date  | date: "%m/%d/%Y" }}</small><span class="zh">  {{ post.title }}</span></a>
         </h4></div>
         <div class="pull-right"><ul class="tag_box inline">
           {% assign tags_list = post.tags %}

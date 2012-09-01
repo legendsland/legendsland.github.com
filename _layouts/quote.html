@@ -2,19 +2,19 @@
 layout: default
 ---
 
-<h3>{{ page.title  }}</h3>
+<h3 class="zh">{{ page.title  }}</h3>
 
 {% if page.image != null %}
   <img src="{{ page.image }}"></img>
 {% endif %}
 <blockquote>
-  <p>
+  <p class="zh">
   {{ page.content }}
   </p>
-  <small><cite><i><a href="{{ page.href  }}">{{ page.desp  }}</a></i></cite></small>
+  <small><cite class="zh"><i><a href="{{ page.href  }}">{{ page.desp  }}</a></i></cite></small>
 </blockquote>
 
-<i class="icon-pencil"></i> {{ page.note }}
+<i class="icon-pencil"></i><span class="zh"> {{ page.note }}</span>
 
 
 <div class="hr-line">
