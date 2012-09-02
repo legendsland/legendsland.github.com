@@ -4,7 +4,6 @@
 
 
 
-
 <script type="text/javascript" charset="utf-8">
 
 function f(e) { console.log(e); }
@@ -51,14 +50,20 @@ success:  function(body, e, r) {
   },
 
 beforeSend: function(xhr) {
-        xhr.setRequestHeader("User-Agent", "uTorrent");
-},
+  xhr.setRequestHeader("Access-Control-Allow-Origin", '*');
+  xhr.setRequestHeader("host", 'screener.brachium-system.net');
+  xhr.setRequestHeader("origin", 'http://screener.brachium-system.net');
+  xhr.setRequestHeader("referer", 'http://screener.brachium-system.net/');
+}
 
+/*
 headers: {
   "Host": 'screener.brachium-system.net',
   "Origin": 'http://screener.brachium-system.net',
   "Referer": 'http://screener.brachium-system.net/'
-}
+}*/
+
+
 
 
 });  
