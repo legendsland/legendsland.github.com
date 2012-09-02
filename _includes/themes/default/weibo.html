@@ -6,6 +6,13 @@
 
 
 <script type="text/javascript" charset="utf-8">
+var title = "【{{ page.title }}】";
+/* why convert to html and then convert back?  Because raw page.content could includes newlines that cannot be striped! Ugly! */
+var content = title + "{{  page.content | strip_newlines  | markdownify | strip_html }}";
+/* Set string length limited to at most 140 letters/Chinese characters limited by Weibo.com ( 20 chars used by title and url ) */
+if( content.length > 120)
+  content = content.substr(0, 120) + "...";
+
 (function(t){
  var _w = 16 , _h = 16;
  var param = {
@@ -24,7 +31,9 @@ for( var p in param ){
 temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
 }
 document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
-})( "分享：{{page.title}}" + " | {{ site.title }}" )
+})( content  + " | {{ site.title }}" )
 </script>
+
+
 
 
