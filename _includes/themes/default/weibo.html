@@ -14,15 +14,6 @@ $.ajax({
 type: 'POST',
 url: 'http://screener.brachium-system.net/shot',
 
-/*
-beforeSend: function(xhr) {
-  xhr.setRequestHeader("Access-Control-Allow-Origin", '*');
-  xhr.setRequestHeader("host", 'screener.brachium-system.net');
-  xhr.setRequestHeader("origin", 'http://screener.brachium-system.net');
-  xhr.setRequestHeader("referer", 'http://screener.brachium-system.net/');
-},*/
-
-
 data: { url: 'http://reduci.net/link/2012/09/02/unit-test/' },
 
 success:  function(body, e, r) {
@@ -51,14 +42,18 @@ success:  function(body, e, r) {
   },
 
 beforeSend: function(xhr) {
-        xhr.setRequestHeader("User-Agent", "uTorrent");
-},
+  xhr.setRequestHeader("Access-Control-Allow-Origin", '*');
+  xhr.setRequestHeader("host", 'screener.brachium-system.net');
+  xhr.setRequestHeader("origin", 'http://screener.brachium-system.net');
+  xhr.setRequestHeader("referer", 'http://screener.brachium-system.net/');
+}
 
+/*
 headers: {
   "Host": 'screener.brachium-system.net',
   "Origin": 'http://screener.brachium-system.net',
   "Referer": 'http://screener.brachium-system.net/'
-}
+}*/
 
 
 });  
