@@ -12,7 +12,7 @@ After a long experiences on Linux/C/C++ I found life is short that I should writ
 
 
 ### reduci.net
-I am writing my English blog on this site. Articles are mainly about programming and marketing. Concise, brief and thoughful are my goals. You can find my Chinese blog [here](http://legendsland.wordpress.com).
+I am writing my English blog on this site. Articles are mainly about programming and marketing. Concise, brief and thoughful are my goals.
 
 
 ### meaning of reduci
