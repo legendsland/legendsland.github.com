@@ -1,6 +1,5 @@
 
 
-
 <script type="text/javascript" charset="utf-8">
 /*
 function f(e) { console.log(e); }
@@ -66,8 +65,6 @@ if( content.length > 100)
   content = content.substr(0, 100) + "...";
 
 (function(t){
-    
-    console.log(t);
  var _w = 16 , _h = 16;
  var param = {
 url:location.href,
@@ -85,7 +82,7 @@ for( var p in param ){
 temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
 }
 document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
-})( content  + " | {{ site.title }}" )
+})( content  + " \| {{ site.title }}" )
 </script>
 
 
