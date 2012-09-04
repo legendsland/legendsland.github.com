@@ -28,14 +28,14 @@ layout: default
 {% endif %}
 
 <ul class="pager pull-right zh">
-{% if prev %}
-  <li><a href="{{ prev.url }}">&lt;&lt;</a></li>
+{% if next %}
+  <li><a href="{{ next.url }}">&lt;&lt;</a></li>
 {% else %}
   <li class="disabled"><a href="#">&lt;&lt;</a></li>
 {% endif %}
 
-{% if next %}
-  <li><a href="{{ next.url }}">&gt;&gt;</a></li>
+{% if prev %}
+  <li><a href="{{ prev.url }}">&gt;&gt;</a></li>
 {% else %}
   <li class="disabled"><a href="#">&gt;&gt;</a></li>
 {% endif %}
