@@ -3,23 +3,39 @@ layout: default
 ---
 
 
+{% assign found = false %}
+{% assign break = false %}
+
+{% for post in site.posts %}
+  {% if post.category == 'link' %}
+      {% if break == false %}
+          {% assign next = post %}
+          {% if found == true %}
+            {% assign break = true %}
+          {% else %}
+            {% if post.id == page.id %}
+              {% assign found = true %}
+            {% else %}
+              {% assign prev = post %}
+            {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% if next.id == page.id %}
+  {% assign next = null %}
+{% endif %}
+
 <ul class="pager pull-right zh">
-{% if page.previous %}
-  {% if page.previous.category == 'link' %}
-    <li><a href="{{ page.previous.url }}">&lt;&lt;</a></li>
-  {% else %}
-    <li class="disabled"><a href="#">&lt;&lt;</a></li>
-  {% endif %}
+{% if prev %}
+  <li><a href="{{ prev.url }}">&lt;&lt;</a></li>
 {% else %}
   <li class="disabled"><a href="#">&lt;&lt;</a></li>
 {% endif %}
 
-{% if page.next %}  
-  {% if page.next.category == 'link' %}
-    <li><a href="{{ page.next.url }}">&gt;&gt;</a></li>
-  {% else %}
-    <li class="disabled"><a href="#">&gt;&gt;</a></li>
-  {% endif %}
+{% if next %}
+  <li><a href="{{ next.url }}">&gt;&gt;</a></li>
 {% else %}
   <li class="disabled"><a href="#">&gt;&gt;</a></li>
 {% endif %}
