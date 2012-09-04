@@ -99,8 +99,10 @@ div.hr-line {
   margin-bottom: -20px;
 }
 
-
-
+/* override twitter pager style:  remove margin-bottom space 20px */
+.pager {
+  margin-bottom: 0;
+}
 
 
 
