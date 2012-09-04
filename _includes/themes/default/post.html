@@ -1,11 +1,22 @@
 
 
+
+{% assign category = 'blog' %}
+{% include themes/default/next.html %}
+
+<h3>{{ page.title }}</h3>
+
 <div class="entry">
     {{ content }}
 </div>
 
 
 
+<div align="right" class="share">
+{% include themes/default/weibo.html %}
+</div>
+
+<div class="hr-line"><hr /></div>
 {% include themes/default/comment.html %}
 
 

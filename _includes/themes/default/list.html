@@ -1,0 +1,17 @@
+
+
+
+{% for post in categories %}
+    <div class="row-fluid">
+        <div class="span6">
+        <h4>
+          <a href="{{ post.url }}"><small>{{ post.date  | date: "%m/%d/%Y" }}</small><span class="zh">  {{ post.title }}</span></a>
+        </h4></div>
+        <div class="pull-right"><ul class="tag_box inline">
+          {% assign tags_list = post.tags %}
+          {% include JB/tags_list %}
+        </ul></div>
+    </div>
+{% endfor %}
+
+
