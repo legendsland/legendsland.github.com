@@ -8,23 +8,23 @@ category: project
 
 ### [Reduci.net][reduci]
 
-This is it. The site is boring and has not much contents now. But I have plans to build/grow it well. Today I read a amazing post [Blogging like a hacker][blog-hacker] written by Jeklly\'s creator. I think the post is neither about cool techlonogies, nor about efficient blogging tools. It is all about starting and improving things you love. I have my own opinions about blogging and writing and I think it\'s the time to bring those ideas out of brain. Jekyll and github is a good start. Btw, I hope you like my English posts.
+The site is just started and has not much contents now. But I have plans to build/grow it well. I read a amazing post [Blogging like a hacker][blog-hacker] written by Jeklly\'s creator. I think the post is neither about cool techlonogies, nor about efficient blogging tools. It is all about starting and improving things you love. I have my own opinions about blogging and writing and I think it\'s the time to bring those ideas out of brain. Jekyll and github is a good start. Btw, I hope you like my English posts.
 
 
 
 ### [4Clojure answers][4clj-ans]
 
-I am learning [Clojure][clj] recently which is a relative new programming language of Lisp family. It is pratical fucntional language hosted on JVM/Javascript created by [Rich Hickey][richhickey] at 2007. [4Clojure][4clj] is a website providing programming execises online. There are lots of programming problems there with different difficulty levels. You can practise online without local Clojure enrivonment.
+I am learning [Clojure][clj] recently which is a relative new programming language of Lisp family. It is a pratical fucntional language hosted on JVM/Javascript created by [Rich Hickey][richhickey] at 2007. [4Clojure][4clj] is a website providing programming execises online. There are lots of programming problems there with different difficulty levels. You can practise online without local Clojure enrivonment.
 
 
 
-### Links <small>(unpublic yet)</small>
+### Link <small>(unpublic yet)</small>
 
 
-A human-produced hpyer-link system. There are not just http links but rather the threads and the nets of all your ideas and knowledge that can be shared and connected by others too.
+A human-produced hyper-link system. There are not just http links but rather the threads and the nets of all your ideas and knowledge that can be shared and connected. Sometimes it is better to connect all your thoughts like [this](/map/reducer.html).
 
 
-### Lean life <small>(unpublic yet)</small>
+### Lean <small>(unpublic yet)</small>
 
 It\'s about personal lean. The idea of lean is super great which has applied in many fields including factories and startups. I think it can be also applied in our daily work and life. I am writing a lean GTD web application that would be taken as the roadmap and hotspots of your life.
 
