@@ -1,6 +1,6 @@
 # Why another blog?
 
-After a long period of using [Wordpress](www.wordpress.com), I found all my needs about blog are:
+After a long period of using [Wordpress](http://www.wordpress.com), I found all my needs about blog are:
 
 1. version control
 2. automatic publish

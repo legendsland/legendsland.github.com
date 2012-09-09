@@ -5,10 +5,16 @@ category: project
 ---
 
 
-
 ### [Reduci.net][reduci]
 
-The site is just started and has not much contents now. But I have plans to build/grow it well. I read a amazing post [Blogging like a hacker][blog-hacker] written by Jeklly\'s creator. I think the post is neither about cool techlonogies, nor about efficient blogging tools. It is all about starting and improving things you love. I have my own opinions about blogging and writing and I think it\'s the time to bring those ideas out of brain. Jekyll and github is a good start. Btw, I hope you like my English posts.
+
+After a long period of using [Wordpress](http://www.wordpress.com), I found all my needs about blogging are:
+
+1. version control
+2. automatic publish
+3. full control of style and content
+
+**Quick** (done) and (full) **Control** are two top persuits of hackers. That's where free comes. **Zealous** is the third beautiful thing in their minds. Sometimes it is neither about cool techlonogies, nor about efficient tools. It is all about starting and improving things I **love**.
 
 
 
