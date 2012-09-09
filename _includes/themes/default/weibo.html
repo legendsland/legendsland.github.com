@@ -16,7 +16,7 @@ function cLength(str){
 
 var title = "【{{ page.title }}】";
 /* why convert to html and then convert back?  Because raw page.content could includes newlines that cannot be striped! Ugly! Ugly! */
-var content = title + "{{  page.content | strip_newlines  | markdownify | strip_html | replace:'&#8217;','’' | replace:'&#8230;','...' | replace:'&#8221;','\"' | replace:'&#8216;','‘' }}";
+var content = title + "{{  page.content | strip_newlines  | markdownify | strip_html | replace:'&#8217;','’' | replace:'&#8230;','...' | replace:'&#8221;','\"' | replace:'&#8216;','‘' | replace:'&#8220;','\"' }}";
 /* Set string length limited to at most 140 letters/Chinese characters limited by Weibo.com ( 20 chars used by title and url ) */
 
 var cn = cLength(content);

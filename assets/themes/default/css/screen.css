@@ -1,3 +1,5 @@
+
+
 #left {
   background: #ddd;
   color: #000;
@@ -12,7 +14,6 @@
 #right {
   background: #000;
   color: #ddd;
-  left: 50%;
   text-align: left;
   float: right;
 }
