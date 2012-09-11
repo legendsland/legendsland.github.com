@@ -14,7 +14,7 @@ After a long period of using [Wordpress](http://www.wordpress.com), I found all 
 2. automatic publish
 3. full control of style and content
 
-**Quick** (done) and (full) **Control** are two top persuits of hackers. That's where free comes. **Zealous** is the third beautiful thing in their minds. Sometimes it is neither about cool techlonogies, nor about efficient tools. It is all about starting and improving things I **love**.
+**Quick** (done) and (full) **Control** are two top persuits of hackers. That's where free comes. **Zealous** is the third beautiful thing in their minds. Sometimes it is neither about cool techlonogies, nor about efficient tools. It is all about starting and improving things you **love**.
 
 
 
