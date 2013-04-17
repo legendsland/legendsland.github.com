@@ -2,7 +2,7 @@
 layout: post
 title: 音乐的初心
 description: 
-category: chinese
+category: blog
 ---
 
 
