@@ -25,17 +25,18 @@
 {% assign next = null %}
 {% endif %}
 
-<ul class="pager pull-right zh">
-{% if next %}
-  <li><a href="{{ next.url }}">&lt;&lt;</a></li>
+<ul class="pager pull-right">
+{% if prev %}
+  <li><a href="{{ prev.url }}">prev</a></li>
 {% else %}
-  <li class="disabled"><a href="#">&lt;&lt;</a></li>
+  <li class="disabled"><a href="#">prev</a></li>
 {% endif %}
 
-{% if prev %}
-  <li><a href="{{ prev.url }}">&gt;&gt;</a></li>
+{% if next %}
+  <li><a href="{{ next.url }}">next</a></li>
 {% else %}
-  <li class="disabled"><a href="#">&gt;&gt;</a></li>
+  <li class="disabled"><a href="#">next</a></li>
 {% endif %}
+
 </ul>
 
