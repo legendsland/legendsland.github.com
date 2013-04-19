@@ -5,9 +5,3 @@ category: about
 ---
 
 
-
-
-
-{% include themes/default/comment.html %}
-
-
