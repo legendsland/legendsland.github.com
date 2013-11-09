@@ -3,5 +3,51 @@ theme :
   name : default
 layout: default
 ---
-{% include JB/setup %}
-{% include themes/default/post.html %}
+
+{% assign found_prev = false %}
+{% assign found_next = false %}
+
+{% for category in page.previous.categories %}
+  {% if category == 'blog' %}
+    {% assign found_prev = true %}
+  {% endif %}
+{% endfor %}
+
+{% for category in page.next.categories %}
+  {% if category == 'blog' %}
+    {% assign found_next = true %}
+  {% endif %}
+{% endfor %}
+
+<main class="content">
+  <section class="container">
+    <div class="row-fluid">
+      <article class="home-icon">
+        <a href="/blog">
+          <i class="icon-home"></i>
+        </a>
+      </article>
+      <article class="post">
+        <h2 class="content">{{page.title}}</h2>
+        <!--h5>{{ page.date | date: "%d %B %Y" }}</h5-->
+        <section>
+          {{ content }}
+          <hr>
+        </section>
+        <section style="margin-bottom: 2em;">
+          {% if page.previous %} 
+            {% if found_prev %}
+              <a rel="prev" class="a-hover"href="{{ page.previous.url }}"><i class="icon-arrow-left"></i> {{ page.previous.title }}</a>
+            {% endif %}
+          {% endif %}
+          {% if page.next %} 
+            {% if found_next %}
+              <a rel="next" style="float:right" class="a-hover"href="{{ page.next.url }}">{{ page.next.title }} <i class="icon-arrow-right"></i></a>
+            {% endif %}
+          {% endif %}
+        </section>
+      </article>
+		</div>
+	</section>
+</main>
+

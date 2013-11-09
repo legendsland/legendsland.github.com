@@ -8,15 +8,83 @@
     <meta name="description" content="{{ site.description }}" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!--link rel="stylesheet/less" href="/assets/theme.less" type="text/less" /-->
-    <link rel="stylesheet" href="{{ ASSET_PATH  }}/bootstrap/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="{{ ASSET_PATH  }}/css/style.css" type="text/css" />
+    <!--link rel="stylesheet" href="{{ ASSET_PATH  }}/bootstrap/css/bootstrap.min.css" type="text/css" /-->
+    <!--link rel="stylesheet" href="{{ ASSET_PATH  }}/css/style.css" type="text/css" /-->
+    <link rel="stylesheet" href="/assets/gt/css/style.css" type="text/css" />
     <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.feed }}" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
+    <!--script type="text/javascript" src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script-->
 </head>
 <body>
+  <div class="content">
+    <main class="container">
+    	<div class="row-fluid">
+    		<section class="content">
+    		  <h1>Ipsum List</h1>
+          <div class="sub-title">A list of interesting lorem ipsums I found on the web</div>
+    		</section>
+    		<ul class="entries">
+    		{% for post in paginator.posts %}
+    		  <li>
+    		    <a href="{{ post.url }}">
+    		        <h3>{{ post.title }}</h3>
+                <time>{{ post.date | date: "%d %B %Y" }}</time>
+                <div>{{ post.content |truncatehtml | truncatewords: 30 }}</div>
+    		    </a>
+    		  </li>
+    		{% endfor %}
+    		</ul>
+    	</div>
+      
+      <div id="post-pagination">
+        {% if paginator.previous_page %}
+        <p class="prev">
+          {% if paginator.previous_page == 1 %}
+          <a href="/">Previous</a>
+          {% else %}
+          <a href="/page{{paginator.previous_page}}"> Previous</a>
+          {% endif %}
+        </p>
+        {% else %}
+<!--         <p class="prev disabled">
+          <span>Previous</span>
+        </p> -->
+        {% endif %}
 
+        <ul class="pages">
+          <li class="page">
+            {% if paginator.page == 1 %}
+<!--             <span class="current-page">1</span> -->
+            {% else %}
+<!--             <a href="/">1</a> -->
+            {% endif %}
+          </li>
+
+          {% for count in (2..paginator.total_pages) %}
+          <li class="page">
+            {% if count == paginator.page %}
+            <span class="current-page">{{count}}</span>
+            {% else %}
+            <a href="/page{{count}}">{{count}}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+
+        {% if paginator.next_page %}
+        <p class="next">
+          <a href="/page{{paginator.next_page}}">Next</a>
+        </p>
+        {% else %}
+<!--         <p class="next disabled">
+          <span>Next</span>
+        </p> -->
+        {% endif %}
+      </div>
+
+    </main>
+  </div>
 <div class="row-fluid">
     <div class="span3">
       <!--Sidebar content-->
