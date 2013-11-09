@@ -16,7 +16,7 @@ category: blog
     		    <a href="{{ post.url }}">
     		        <h3>{{ post.title }}</h3>
                 <!--time>{{ post.date | date: "%d %B %Y" }}</time-->
-                <div>{{ post.content | truncatehtml: 30 }}</div>
+                <div>{{ post.content | truncate: 140 }}</div>
     		    </a>
     		  </li>
     		{% endfor %}
