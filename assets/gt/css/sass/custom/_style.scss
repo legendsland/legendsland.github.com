@@ -52,7 +52,7 @@ hr{
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
-  src: local('Raleway'), url(http://themes.googleusercontent.com/static/fonts/raleway/v6/IczWvq5y_Cwwv_rBjOtT0w.woff) format('woff');
+  src: local('Raleway');//, url(http://themes.googleusercontent.com/static/fonts/raleway/v6/IczWvq5y_Cwwv_rBjOtT0w.woff) format('woff');
 }
 
 // 1. b Extends
@@ -205,6 +205,7 @@ hr{
         font-weight: normal;
         font-size: 3em;
         padding: 1.1em 0 0.2em;
+        margin-bottom: 1.0em;
         letter-spacing: 0.05em;
         color: $greenSpotify;
 
@@ -224,6 +225,10 @@ hr{
         // 段落之间的距离
         p {
           margin-bottom: 1.5em;
+        }
+
+        // 图片大小
+        img {
         }
     }
 

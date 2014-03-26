@@ -1,9 +1,8 @@
 ---
 theme :
-  name : default
+name : default
 layout: default
 ---
-
 {% assign found_prev = false %}
 {% assign found_next = false %}
 
@@ -19,35 +18,54 @@ layout: default
   {% endif %}
 {% endfor %}
 
-<main class="content">
-  <section class="container">
-    <div class="row-fluid">
-      <article class="home-icon">
-        <a href="/blog">
-          <i class="icon-home"></i>
-        </a>
-      </article>
-      <article class="post">
-        <h2 class="content">{{page.title}}</h2>
-        <!--h5>{{ page.date | date: "%d %B %Y" }}</h5-->
-        <section>
-          {{ content }}
-          <hr>
-        </section>
-        <section style="margin-bottom: 2em;">
-          {% if page.previous %} 
-            {% if found_prev %}
-              <a rel="prev" class="a-hover"href="{{ page.previous.url }}"><i class="icon-arrow-left"></i> {{ page.previous.title }}</a>
-            {% endif %}
-          {% endif %}
-          {% if page.next %} 
-            {% if found_next %}
-              <a rel="next" style="float:right" class="a-hover"href="{{ page.next.url }}">{{ page.next.title }} <i class="icon-arrow-right"></i></a>
-            {% endif %}
-          {% endif %}
-        </section>
-      </article>
-		</div>
-	</section>
-</main>
+<div id="layout">
+  <a href="#menu" id="menulink" class="menu-link"> <span></span> </a>
+
+  <div id="menu">
+      <div class="pure-menu pure-menu-open">
+          <a class="pure-menu-heading" href="/blog">Blog &#171;</a>
+          <ul class="toc"></ul>
+      </div>
+  </div>
+
+  <div id="main">
+    <div class="header">
+      <h1 class="content">{{page.title}}</h1>
+      <h4>
+        {% if page.description %}
+          简介：{{page.description}}
+        {% else %}
+          {{page.description}}
+        {% endif %}
+      </h4>
+    </div>
+
+    <div class="content">
+      {{ content }}
+
+      {% if page.previous %} 
+        {% if found_prev %}
+        <ul class="pure-paginator left">
+          <li><a class="pure-button prev" href="{{ page.previous.url }}">&#171; {{ page.previous.title }}</a></li>
+        </ul>
+        {% endif %}
+      {% endif %}
+
+      {% if page.next %} 
+        {% if found_next %}
+        <ul class="pure-paginator right">
+          <li><a class="pure-button next" href="{{ page.next.url }}">{{ page.next.title }} &#187;</a></li>
+        </ul>
+        {% endif %}
+      {% endif %}
+
+      <div class="clear-float"></div>
+    </div>
+
+    <div class="footer">
+    </div>
+
+  </div> 
+</div>
+
 

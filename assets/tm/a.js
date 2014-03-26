@@ -1,0 +1,1 @@
+_adpro.show({"bc4aeed139661fef5a2e_f16f697d5a54b845c22c":{"type":"fixed","width":"300px","height":"250px","v":"bottom","h":"right","closeV":"bottom","closeH":"left","closeFontSize":"16px","closePadding":"1px 1px","closeMargin":"1px 2px 1px 1px","closeColor":"#000000","closeBackground":"#DDDDDD"},"rid":"507dc90a"});

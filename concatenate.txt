@@ -1,0 +1,36 @@
+
+
+
+;əə; D A D D C R D A A ; D A A D D C C R D A | 
+
+0 * * b
+anf * * halt
+
+function b
+* * f(b1,b1,|)
+end
+
+function b1
+* rr:rrDrrA anf
+end
+
+
+function f a b α
+ə l f1(a,b,α)
+!ə l f(a,b,α)
+end
+
+function f1 a b α
+α * a
+!α r f1(a,b,α)
+_ r f2(a,b,α)
+end
+
+function f2 a b α
+α * a
+!α r f1(a,b,α)
+_ r b
+end
+
+
+

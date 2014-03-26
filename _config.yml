@@ -1,6 +1,9 @@
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "backup"]
 auto:          true
+markdown:      kramdown
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+textile_ext:   textile
 pygments:         true
 paginate:         6
 permalink:        /:categories/:title 

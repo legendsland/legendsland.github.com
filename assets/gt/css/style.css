@@ -1866,7 +1866,7 @@ hr {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
-  src: local("Raleway"), url(http://themes.googleusercontent.com/static/fonts/raleway/v6/IczWvq5y_Cwwv_rBjOtT0w.woff) format("woff"); }
+  src: local("Raleway"); }
 
 .a-hover, .entries h3, .entries a, .home-icon a {
   color: #333333;
@@ -1960,6 +1960,7 @@ hr {
     font-weight: normal;
     font-size: 3em;
     padding: 1.1em 0 0.2em;
+    margin-bottom: 1.0em;
     letter-spacing: 0.05em;
     color: #81b71a; }
     .post h2 span {
@@ -1971,8 +1972,6 @@ hr {
     color: #4d4d4d; }
     .post section p {
       margin-bottom: 1.5em; }
-    .post section a {
-      target: "_blank"; }
 
 footer .container {
   color: white;

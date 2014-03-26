@@ -1,0 +1,29 @@
+
+/* h4 is post introdution part */
+h4 {
+  text-align: left;
+}
+
+/* post intro text in blog index page should be small */
+li .post-intro {
+  margin-left:20px;
+  font-size:smaller;
+}
+
+.header blockquote {
+  text-align:right;
+  font-style:italic
+}
+
+.pure-paginator.left {
+float:left;
+}
+
+.pure-paginator.right {
+float:right;
+}
+
+.clear-float {
+clear:both;
+}
+
