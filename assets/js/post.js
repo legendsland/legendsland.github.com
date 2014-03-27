@@ -20,14 +20,24 @@ $('.content h2').each(function(index) {
       $(this).addClass('pure-menu-selected');
     }
   });
-
 });
 
-$('#menu .toc li:first-child').addClass('pure-menu-selected');
+  $('#menu .toc li:first-child').addClass('pure-menu-selected');
 }
 
-$( function() {
+function toggle(el, showtxt, hidetxt) {
+	el.toggle();
+	console.log( el.prev());
+	if( el.is(":hidden") ) {
+		el.prev().text(showtxt);
+	} else {
+		el.prev().text(hidetxt);
+	}
+}
 
+// onload
+$( function() {
+		// generate table of contents
         init_toc();
 
          // highlight code

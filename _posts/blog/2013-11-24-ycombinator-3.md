@@ -21,7 +21,7 @@ category: blog
 在任何编程语言的教材上面讲解函数的这一章都会看到。这种递归写法的关键是编程语言支持：
 
  1. 给函数命名a
- 2. 在函数体内支持调用该函数自己a
+ 2. 在函数体内支持调用该函数自己
 
 对高级语言而言，这两点是显然的，C/C++, Java, Python 等语言都支持，实现起来会用到堆栈，每次调用都会将上次的调用保存起来，以便能返回。但对 lambda 而言，它们都是匿名的，在 lambda 表达式的体内无法引用自己，这就需要将 factorial 这个名字提取出来，提取的过程就是推导 Y 的过程。
 
@@ -216,7 +216,8 @@ category: blog
 <embed src="http://player.youku.com/player.php/sid/XNTkzNzkxMTcy/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
 </p>
 
-<pre>
+<div onclick="toggle($('.toggle-hide'), '显示字幕', '收起字幕');return false;">显示字幕</div>
+<pre class="toggle-hide">
 早上好，很高兴来到这里 ？？？
 很好，很好，我也很高兴到这里拉来
 今天早上我们讲讲 Y 组合子

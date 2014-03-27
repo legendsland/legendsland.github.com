@@ -48,3 +48,8 @@ li .post-intro {
 .wen {
 	float:left;
 }
+
+.toggle-hide {
+ display:none;
+}
+
