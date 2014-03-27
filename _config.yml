@@ -11,8 +11,8 @@ permalink:        /:categories/:title
 title:           
 feed:             /atom.xml
 author:
-    name:        
-    twitter:      
+    name:     "Yiannis Chang"
+    email:    yiannis.chang@gmail.com
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
 # Most places will/should use BASE_PATH to make the urls
@@ -22,8 +22,4 @@ author:
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 production_url : http://legendsland.github.io
-
-
-description:      "Blog"
-author_info:      "a"
 

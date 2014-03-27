@@ -1,6 +1,5 @@
 ---
-theme :
-name : default
+name : post
 layout: default
 ---
 {% assign found_prev = false %}
@@ -31,32 +30,37 @@ layout: default
   <div id="main">
     <div class="header">
       <h1 class="content">{{page.title}}</h1>
-      <h4>
+      <div class="pure-g">
+       <div class="pure-u-1-2"><h3 class="author-name">文 / {{ site.author.name }}</h3> </div>
+       <div class="pure-u-1-2"><h3 class="post-date">{{ page.date | date: "%m/%d/%Y" }} </h3> </div>
+      </div>
         {% if page.description %}
-          简介：{{page.description}}
-        {% else %}
-          {{page.description}}
+              <h4> 简介：{{page.description}} </h4>
         {% endif %}
-      </h4>
     </div>
 
     <div class="content">
+    
       {{ content }}
 
       {% if page.previous %} 
         {% if found_prev %}
-        <ul class="pure-paginator left">
-          <li><a class="pure-button prev" href="{{ page.previous.url }}">&#171; {{ page.previous.title }}</a></li>
-        </ul>
+          <a class="post-paginator pure-button left" href="{{ page.previous.url }}">&#171; {{ page.previous.title }}</a>
+        {% else %}
+          <a class="post-paginator pure-button pure-button-disabled left" href="#">已经是第一篇</a>
         {% endif %}
+      {% else %}
+        <a class="post-paginator pure-button pure-button-disabled left" href="#">已经是第一篇</a>
       {% endif %}
 
       {% if page.next %} 
         {% if found_next %}
-        <ul class="pure-paginator right">
-          <li><a class="pure-button next" href="{{ page.next.url }}">{{ page.next.title }} &#187;</a></li>
-        </ul>
-        {% endif %}
+          <a class="post-paginator pure-button right" href="{{ page.next.url }}">{{ page.next.title }} &#187;</a>
+        {% else %}
+          <a class="post-paginator pure-button pure-button-disabled right" href="#">已经是最后一篇</a>
+        {% endif %} 
+      {% else %}
+        <a class="post-paginator pure-button pure-button-disabled right" href="#">已经是最后一篇</a>
       {% endif %}
 
       <div class="clear-float"></div>
@@ -68,4 +72,5 @@ layout: default
   </div> 
 </div>
 
-
+<!-- js preprocessing post -->
+<script type="text/javascript" src="/assets/js/post.js"></script>
