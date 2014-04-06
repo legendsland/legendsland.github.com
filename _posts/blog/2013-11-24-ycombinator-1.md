@@ -7,23 +7,23 @@ category: blog
 
 如果你对λ有所了解，那么一定对这个表达印象深刻：
 
-    λx.(x x)(λx.(x x))
+λx.(x x)(λx.(x x))
 
 当试图计算的时候，将参数带入函数内部会得到它自己：
 
-    λx.(x x)(λx.(x x))
+λx.(x x)(λx.(x x))
   
 λ的运算规则决定了这样“奇怪”的东西，它将永远计算下去，永远得到自己。如果将这个表达式用函数 f 复合一次，并将 (x x) 应用到 f：
 
-    λf.λx.f(x x)(λx.f(x x))
+λf.λx.f(x x)(λx.f(x x))
 
 将它命名为Y。当我们传入函数 F 计算的时候：
 
 <pre>
-    YF = (λf.(λx.f(x x))(λx.f(x x))) F
-    =>    (λx.F(x x)) (λx.F(x x))
-    =>    F( (λx.F(x x)) (λx.F(x x) )
-    =>    F(YF)
+YF = (λf.(λx.f(x x))(λx.f(x x))) F
+  => (λx.F(x x)) (λx.F(x x))
+  => F( (λx.F(x x)) (λx.F(x x) )
+  => F(YF)
 </pre>
 
 我不清楚最开始 Y 是怎么想出来的，但以上的思考是完全直觉的，从一个最简单“无穷循环” 的 λx.(x x)(λx.(x x)) 经过一次简单的复合形成的 Y。你看，Y 也并非像是冥思苦想的结果，可能就是一次无意中的尝试而得到的美妙结果。
@@ -34,32 +34,32 @@ category: blog
 
 以 factorial 为例，它的 scheme 描述就是：
 
-<?prettify lang=scm?> <pre class="prettyprint">
-    (lambda (n)
-      (if (= n 0) 1
-          (* n (???  (- n 1)))))
-</pre>
+~~~~~ clojure
+(lambda (n)
+  (if (= n 0) 1
+      (* n (???  (- n 1)))))
+~~~~~
 
 里面的 ??? ，可以一直这样扩展下去：
 
-<?prettify lang=scm?> <pre class="prettyprint">
-    (lambda (n)
-      (if (= n 0) 1
-          (* n ((lambda (n)
-                    (if (= n 0) 1
-                        (* n (???  (- n 1)))))
-      (- n 1)))))
-    ...
-</pre>
+~~~~~ clojure
+(lambda (n)
+  (if (= n 0) 1
+      (* n ((lambda (n)
+              (if (= n 0) 1
+                  (* n (???  (- n 1)))))
+            (- n 1)))))
+...
+~~~~~
 
 但如果存在一个函数 g ，等价于 ???，那么就能代替这种无穷过程，factorial 就可以写成：
 
-<?prettify lang=scm?> <pre class="prettyprint">
-    (lambda (g)
-     (lambda (n)
-       (if (= n 0) 1
-         (* n (g  (- n 1))))))
-</pre>
+~~~~~ clojure
+(lambda (g)
+ (lambda (n)
+   (if (= n 0) 1
+       (* n (g  (- n 1))))))
+~~~~~
 
 当然，这是我们最良好的愿望，factorial 如果能表达成这种形式，简直就是编程上的完美，它简要地概括了 factorial 定义的精髓，而且没有无穷的循环，唯一的问题是这个 g 悬挂在哪里，这个 g 到底是什么？有几点可以假设一下：
 
@@ -73,20 +73,20 @@ category: blog
 
 (Y facorial)  根据 YF = F(YF) 的特性：
 
-<?prettify lang=scm?> <pre class="prettyprint">
-    =>
-    facorial (Y facorial) 
-    =>
-    ((lambda (g)
-     (lambda (n)
-       (if (= n 0) 1
-         (* n (g  (- n 1))))))
-    (Y facorial ))  
-    =>
-    (lambda (n)
-       (if (= n 0) 1
-         (* n ((Y facorial )  (- n 1))))))
-</pre>
+~~~~~ clojure
+=>
+facorial (Y facorial) 
+=>
+((lambda (g)
+ (lambda (n)
+   (if (= n 0) 1
+       (* n (g  (- n 1))))))
+ (Y facorial ))  
+=>
+(lambda (n)
+   (if (= n 0) 1
+       (* n ((Y facorial ) (- n 1))))))
+~~~~~
 
 这是新得到的 lambda，这个 lambda 是可以直接计算出结果的 —— 当参数 n = 0 时！如果 n>0 ，每次计算都会使得 n-1，直到 n=0 为止，所以这个过程会终止。这得益于 if，if 先计算它的条件，如果成立则计算成立情况下的结果，根本就不管不成功下的结果了，这样就使得整个表达式能够返回。Y 完美地抽象出了 factorial 的递归过程。
 

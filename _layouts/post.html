@@ -29,14 +29,16 @@ layout: default
 
   <div id="main">
     <div class="header">
-      <h1 class="content">{{page.title}}</h1>
-      <div class="pure-g">
-       <div class="pure-u-1-2"><h3 class="author-name">文 / {{ site.author.name }}</h3> </div>
-       <div class="pure-u-1-2"><h3 class="post-date">{{ page.date | date: "%m/%d/%Y" }} </h3> </div>
+      <h1>{{page.title}}</h1>
+      <div class="post-info">
+        <div class="pure-g post-info">
+          <div class="pure-u-1-2 post-date"><a href='/archive.html#{{page.date|date:"%Y"}}'>{{ page.date | date: "%Y" }}</a> / <a href='/archive.html#{{page.date|date:"%Y-%m"}}'>{{ page.date | date: "%m" }}</a> / <a href='/archive.html#{{page.date|date:"%Y-%m"}}'>{{ page.date | date: "%d" }}</div>
+          <div class="pure-u-1-2 post-author"><a href="/about">{{ site.author.name }}</a></div>
+        </div>
+          {% if page.description %}
+          <p class="post-intro">【简介】{{page.description}}</p>
+          {% endif %}
       </div>
-        {% if page.description %}
-              <h4> 简介：{{page.description}} </h4>
-        {% endif %}
     </div>
 
     <div class="content">
@@ -73,5 +75,7 @@ layout: default
   </div> 
 </div>
 
+
 <!-- js preprocessing post -->
 <script type="text/javascript" src="/assets/js/post.js"></script>
+

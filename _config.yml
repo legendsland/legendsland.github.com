@@ -3,6 +3,15 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "
 auto:          true
 markdown:      kramdown
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
+
+redcarpet:
+  extensions: []
+
+kramdown:
+  use_coderay: true
+  coderay:
+    coderay_line_numbers: nil
+
 textile_ext:   textile
 pygments:         true
 paginate:         6

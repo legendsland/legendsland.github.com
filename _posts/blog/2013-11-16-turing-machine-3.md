@@ -9,18 +9,18 @@ category: blog
 
 这个打印输出怎么样？由 0 间隔起来的，逐次增加的 1。如果你用高级编程语言做是容易的事情，比如 C:
 
-<?prettify lang=c?> <pre class="prettyprint">
-    int ones = 0;
-    while(1) {
-      int i = ones;
-      printf("0");
-      while(i) {
-         printf("1");
-         i--;
-      }
-      ones++;
-    }
-</pre>
+~~~~~ c
+int ones = 0;
+while(1) {
+  int i = ones;
+  printf("0");
+  while(i) {
+     printf("1");
+     i--;
+  }
+  ones++;
+}
+~~~~~
 
 两次循环，一次是循环打印 0 和 1，另一次循环打印多个 1。C 语言是对存储式计算机的抽象，最终的特征是它具有可读写的状态，比如上段程序中的变量 ones，用于保存当前循环需要打印的 1 的个数。这种状态变量能很好地模拟客观世界，因为客观世界中的物体在不同时刻也会拥有不同状态。
 
@@ -74,6 +74,7 @@ category: blog
 
 图灵的论文表示如下：
 
+{:.post-img}
 ![](/assets/images/01table.png)
 
 翻译成支持多动作的程序就是：
@@ -94,7 +95,7 @@ category: blog
 
     16 * rr 16
     16 _ 0ll 6
-<pre>
+</pre>
 
 
 这似乎让我们看到了图灵机的希望：它居然能模拟一段 C 程序运行，事实上，它们模拟所有的高级语言！这得到这个结论之前，图灵需要寻找一种更简单地编写指令的方法 —— 子程序。

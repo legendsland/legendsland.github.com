@@ -1,10 +1,11 @@
 /* font setting */
 body {
-	font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;	
+	font-family: Verdana, "Times New Roman", Arial, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;	
+  color: #000;  /* pure default is #777 */
 }
 
 h1,h2,h3,h4 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
 }
 
 /* h4 is post introdution part */
@@ -15,13 +16,14 @@ h4 {
 /* post intro text in blog index page should be small */
 li .post-intro {
 	margin-left: 20px;
-	font-size: smaller;
+  color:#777777;
+	font-size: 13px;
 }
 
-.header blockquote {
-	text-align: right;
-	font-style: italic
+.post-info .post-intro {
+  text-align:left;
 }
+
 
 /* paginator layout */
 .post-paginator.left {
@@ -37,12 +39,16 @@ li .post-intro {
 }
 
 /* post author */
-.author-name {
-	text-align:left;
+.post-info .post-author, .post-info .post-date {
+  font-family: "Segoe UI Light", Tahoma, serif;
+}
+
+.post-author {
+	text-align:right;
 }
 
 .post-date {
-	text-align:right;
+	text-align:left;
 }
 
 .wen {
@@ -52,4 +58,74 @@ li .post-intro {
 .toggle-hide {
  display:none;
 }
+
+/* post 里面的图片 */
+.post-img img {
+  max-width: 100%;
+  height: auto;
+  cursor: zoom-in;
+  cursor: -webkit-zoom-in;
+}
+
+/* post 图片上的文字信息 */
+.post-img p {
+  text-align:right;
+  font-size:x-small;
+  visibility:hidden;
+}
+
+/* 代码不自动换行 */
+pre { 
+  white-space: pre;
+  word-wrap: normal;
+  overflow: auto;
+  font-size:13px;  /* 让代码字体小点 */
+}
+
+/* post 部分的宽度 */
+.header, .content {
+ /* max-width: 600px; */
+}
+
+blockquote {
+font-family: Georgia, serif;
+font-size: 15px;
+font-style: italic;
+margin: 0.25em 0;
+padding: 0.35em 40px;
+position: relative;
+color: #383838;
+}
+
+.header blockquote {
+  text-align:right;
+}
+
+blockquote:before {
+display: block;
+padding-left: 10px;
+content: "\201C";
+font-size: 80px;
+position: absolute;
+left: -20px;
+top: -20px;
+color: #7a7a7a;
+}
+
+blockquote cite {
+color: #999999;
+font-size: 14px;
+text-align:right;
+display: block;
+margin-top: 5px;
+}
+
+blockquote cite:before {
+content: "\2014 \2009";
+}
+
+.footnotes {
+font-size:13px;
+}
+
 
