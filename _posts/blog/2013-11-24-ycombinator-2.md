@@ -10,7 +10,7 @@ category: blog
 
 一个返回带初值加法器的函数：
 
-``` scheme
+```scheme
 (define (make-adder x)
  (lambda (n)
   (+ x n))
@@ -24,7 +24,7 @@ category: blog
 
 对 make-adder 的函数体，可以用一层无参数 lambda 包裹一下，为了保持语义不便，这层 lambda 需要运算一遍：
 
-``` scheme
+```scheme
 (define (make-adder-a x)
 ((lambda ()
  (lambda (n)
@@ -38,7 +38,7 @@ category: blog
     
 在1的基础上，给这个新的 lambda 增加参数，保证参数名与里层 lambda 中的变量名字不一样：
 
-``` scheme
+```scheme
 (define (make-adder-b x)
 ((lambda (bring-in-anything)
  (lambda (n)
@@ -52,7 +52,7 @@ apply-anything-either)
     
 和以上两种做法非常类似，但很不同。用 lambda 封装一次，和包裹的区别在于，封装保证了原 lambda 的接口不变，而包裹改变了里面 lambda 的接口（lambda 表达式变成了application）：
 
-``` scheme
+```scheme
 (define (make-adder-c x)
 (lambda (m)
  ((lambda (n)
@@ -68,13 +68,13 @@ apply-anything-either)
 
 这个相当于用 lambda 替换引用的函数名：
 
-``` scheme
+```scheme
 ((make-adder 10) 1)
 ```
 
 写成：
 
-``` scheme
+```scheme
 (((lambda (x)
     (lambda (n)
      (+ x n))) 10) 1)
@@ -85,7 +85,7 @@ apply-anything-either)
   
 在 SICP 第三章里面，有专门讲到惰性计算，使用的就是将原先需要立即计算的表达式延迟了。这会改变原来的语义，不能说是“重构”，但这是很重要的一个技巧，后面也有用到：
 
-``` scheme
+```scheme
 (define (make-adder-d x)
  (lambda ()
    (make-adder x)

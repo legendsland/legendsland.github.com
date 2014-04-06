@@ -11,19 +11,19 @@ _Inspired by Bjarne Stroustrup[^1]._
 
 所有的算法都可以写成代码，但代码就不一定是（狭义上的）算法。大多数人在写代码，而不是算法。它们一个最大区别在于，算法尝试解决一类通用的问题，而代码处理特定的问题。比如 C++ 的 STL 是算法的集合，实现最基本的数据结构以及在其上的通用操作，而某段快排的代码只能满足特定的数据，当然你会反驳说 C 标准库里面的 qsort 就是万能的：
 
-``` c
+```c
 void qsort(void *base, size_t nmemb, size_t size, int(*compar)(const void*, const void*));
 ```
 
 对。它的万能取决于 C 语言中的 void* ，因为它能代表任意类型。但问题是，当你使用这种“灵活”的类型时，每次都需要自己手工对其“具体化”，你要明确它的实际大小（size），当使用指针操作的时候，每次都需要带上这个 size，比如当你计算第 10 个（从 0 开始）元素的时候：
 
-``` c
+```c
 base + size*10
 ```
 
 但如果 base 类型是具体的，比如 int*，这时就只需要写成：
 
-``` c
+```c
 base + 10
 ```
 
@@ -31,7 +31,7 @@ base + 10
 
 灵活的 void* 导致需要传递额外的参数： nmemb 和 size。对具体的类型，比如含 10 个整数的数组 int[10]，它的 nmemb 能够通过 sizeof(int[10])/sizeof(int) 计算出来，单个元素的 size 就是 sizeof(int)。而这一切信息，当面对虚空 void* 时，被吞噬得一干二净：
 
-``` c
+```c
 #define LENGTH(array) (sizeof(array)/sizeof(array[0]))
 #define ELEM_SIZE(array) (sizeof(array[0]))
 
@@ -45,7 +45,7 @@ qsort(a, LENGTH(a), ELEM_SIZE(a), (cmp)compar_int);
 
 “噩梦”还没有结束。qsort 的最后一个参数是函数指针，在 qsort 函数体里面，会使用 (*comapr)(...) 来比较大小。而这样的间接调用方式比起直接额函数调用是低效的。另外，当你实现 compar 的具体类型，比如：
 
-``` c
+```c
 static int compar_int(const void* p1, const void* p2) {
   if( *(const int*)p1 > *(const p2*)b )
     return 1;
@@ -64,7 +64,7 @@ qsort 是高效的算法，基本想法是首先将待排序的数据分成了�
 
 qsort 先将数据划分成两部分：[first, middle) 和 (middle, last)。[first, middle) 里面的任何数据比 (middle, last] 里面的所有数据都小。这两区间之一有可能不存在，取决于数据的性质和 middle 的选择。接着对这两部分使用同样的方法继续划分，直到最后只有 0 或者 1 个元素的区间，这时排序结束：
 
-``` c
+```c
 void
 qsort(void *base, size_t nmemb, size_t size, int(*compar)(const void *, const void *)) {
 
@@ -102,7 +102,7 @@ qsort(void *base, size_t nmemb, size_t size, int(*compar)(const void *, const vo
 
 在 qsort 里面，它需要 swap 数据，使用了 bitwise 的机制（因为 void* 不带任何类型信息，只能是按字节去做最低级的拷贝操作）：
 
-``` c
+```c
 #define SWAP(a, b, size) {\
    register size_t __size = (size);\
    register char *__a = (a), *__b = (b);\
@@ -121,7 +121,7 @@ void* 消灭了一切，你想做任何与特性类型的定制，无疑，是�
 C++ 的泛型系统就是系统地针对上述问题，尝试既能编写通用的代码，又不必摧毁类型。当你无须关心类型上的细节，直接处理问题本身，比如对 qsort 而言，考虑的是如何遍历，如何分而治之，你编制出来的就是算法本身，而不是混杂了许多无关算法的语言细节。这样的代码看起来就像是算法教材上完美的伪码一样。
 
 
-``` cpp
+```cpp
 template<typename _RandomAccessIterator>
   inline void
   sort(_RandomAccessIterator __first, _RandomAccessIterator __last);
@@ -140,7 +140,7 @@ template<typename _RandomAccessIterator, typename _Compare>
 
 基本上，将上面 qsort 稍微修改一下便能使他接受标准的 STL 迭代类型 —— 即定义良好的任意的类型。
 
-``` c
+```c
 template<typename _RandomAccessIterator, typename _Compare>
   inline void
   my_sort(_RandomAccessIterator __first, _RandomAccessIterator __last, _Compare __comp) {
@@ -203,7 +203,7 @@ template<typename _RandomAccessIterator, typename _Compare>
 Bjarne Stroupstrup 举了这样一个真实的例子，怎样重构下面的代码：
 
 
-``` cpp
+```cpp
 void drag_item_to(Vector& v, Vector::iterator source, Coordinate p)
 {
   // find the insertion point
@@ -220,7 +220,7 @@ void drag_item_to(Vector& v, Vector::iterator source, Coordinate p)
 
 重构的代码如下：
 
-``` cpp
+```cpp
 template < typename Iter, typename Predicate>
 pair<Iter, Iter> gather(Iter first, Iter last, Iter p, Predicate pred)
   // move elements for which pred() is true to the insertion point p

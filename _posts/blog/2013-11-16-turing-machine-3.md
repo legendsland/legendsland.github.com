@@ -9,7 +9,7 @@ category: blog
 
 这个打印输出怎么样？由 0 间隔起来的，逐次增加的 1。如果你用高级编程语言做是容易的事情，比如 C:
 
-``` c
+```c
 int ones = 0;
 while(1) {
   int i = ones;

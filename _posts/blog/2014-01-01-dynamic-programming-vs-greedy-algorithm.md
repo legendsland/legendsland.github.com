@@ -43,7 +43,7 @@ output:
 
 在 console 使用 node 执行该代码，并将终端的输出 pipe 到 dot，生成 png 图片。在 vi 中是这样的：
  
-``` 
+```
 w || !node % | dot -Tpng -o %.png
 ```
  
@@ -63,7 +63,7 @@ w || !node % | dot -Tpng -o %.png
 
 其中 choose 就是所谓 amb 函数，从一个列表中选一个出来。这段代码看起来没有任何的非尾递归，jump-naive 实质上可以写成迭代函数：
 
-``` scheme
+```scheme
 (define (jump-naive-loop i)
   (let loop ([n i])
     (loop (select-naive steps n))))
@@ -74,7 +74,7 @@ w || !node % | dot -Tpng -o %.png
 
 如果计算路径，需要修改 jump 函数，可以使用 stack 保存路径：
 
-``` scheme
+```scheme
 (define min-steps 99)                                ;; 保存当前最短步数
 (define stack (make-parameter '(-1)))                ;; 保存当前路径
 (define results (make-parameter '()))                ;; 保存所有路径
@@ -123,7 +123,7 @@ $$
 
 这便是这个问题的递归结构。首先要找到那个衡量最优解的“值”（这里是步数 $s_i$），然后从那里开始分析。依次便能写出递归算法：
 
-``` scheme
+```scheme
 ;; 构造集合  { i+1,  .. i+a[i] }
 (define (r i)
   (let ((n (list-ref steps i)))
@@ -145,7 +145,7 @@ $$
 
 memoization 是 memo 的名词，而不是 memorize 的名词。memoization 专指计算机上的优化技术。通过记录已经算出的结果，来提高下次碰到同样问题的计算速度：将算过的 jump-recur 保存起来，对一个 i 计算前先查查是否算过，如果算过就直接得到结果：
 
-``` scheme
+```scheme
 (define (jump-recur i)
   (let (memo (loop-up i))
      (if (not (= memo 0)) memo                    ;; 有记录则直接返回

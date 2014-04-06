@@ -34,7 +34,7 @@ YF = (λf.(λx.f(x x))(λx.f(x x))) F
 
 以 factorial 为例，它的 scheme 描述就是：
 
-``` scheme
+```scheme
 (lambda (n)
   (if (= n 0) 1
       (* n (???  (- n 1)))))
@@ -42,7 +42,7 @@ YF = (λf.(λx.f(x x))(λx.f(x x))) F
 
 里面的 ??? ，可以一直这样扩展下去：
 
-``` scheme
+```scheme
 (lambda (n)
   (if (= n 0) 1
       (* n ((lambda (n)
@@ -54,7 +54,7 @@ YF = (λf.(λx.f(x x))(λx.f(x x))) F
 
 但如果存在一个函数 g ，等价于 ???，那么就能代替这种无穷过程，factorial 就可以写成：
 
-``` scheme
+```scheme
 (lambda (g)
  (lambda (n)
    (if (= n 0) 1
@@ -73,7 +73,7 @@ YF = (λf.(λx.f(x x))(λx.f(x x))) F
 
 (Y facorial)  根据 YF = F(YF) 的特性：
 
-``` scheme
+```scheme
 =>
 facorial (Y facorial) 
 =>

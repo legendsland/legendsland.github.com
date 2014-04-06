@@ -10,7 +10,7 @@ category: blog
 
 ##1. 最原始的 factorial 定义
 
-``` scheme
+```scheme
 (define (factorial n)
 (if (= n 0) 1
     (* n (factorial (- n 1)))))
@@ -27,7 +27,7 @@ category: blog
 
 ##2. 将函数体内的 factorial 参数化
 
-``` scheme
+```scheme
 (define (factorial g)
  (lambda (n)
    (if (= n 0) 1
@@ -40,13 +40,13 @@ category: blog
 
 ##3. Inline
 
-``` scheme
+```scheme
 ((factorial factorial) 10) 
 ```
   
 看起来不是我们期望的形式，我们最终期望将 factorial 分解为 Y（抽象出来的递归结构）和 F（实质性的计算），因此将这个表示是用定义 Inline，就会写成：
 
-``` scheme
+```scheme
 (((lambda (g)
    (lambda (n)
     (if (= n 0) 1
@@ -64,7 +64,7 @@ category: blog
 
 很明显有重复的代码，这相同的部分可以定义一个新函数：(lambda (x) (x x))
 
-``` scheme
+```scheme
 (((lambda (x)
   (x x))
   (lambda (g)
@@ -82,7 +82,7 @@ category: blog
 
 提取内部代码的方法，就是将它当作参数：
 
-``` scheme
+```scheme
 ((lambda (x)
  (x x))
  (lambda (g)
@@ -96,7 +96,7 @@ category: blog
 
 不！不要运行上面代码，会死循环的，因为这个参数 (g g) 会无限调用它自己！解决的方法也很简单，将它用 lambda 封装起来：
 
-``` scheme
+```scheme
 (((lambda (x)
   (x x))
   (lambda (g)
@@ -110,7 +110,7 @@ category: blog
 
 ##6. 用同样的方法，将 (g g) 继续提取出去：
 
-``` scheme
+```scheme
 (((lambda (x)
   (x x))
   (lambda (g)
@@ -128,7 +128,7 @@ category: blog
 
 此时，在最里面的已经没有任何“奇怪”的计算，可以将计算 factorial 的部分抽象出来，命名为一个新的函数 fact：
 
-``` scheme
+```scheme
 (define (fact h)
   (lambda (n)
     (if (= n 0) 1
@@ -147,7 +147,7 @@ category: blog
 
 同样使用参数化的技巧：
 
-``` scheme
+```scheme
 (define (fact h)
   (lambda (n)
     (if (= n 0) 1
@@ -167,7 +167,7 @@ category: blog
 
 到目前为之，fact 的定义已经提取出来，而且作为最外层的参数传递给一个 lambda 表达式，这个 lambda 就是我们寻找的 Y：
 
-``` scheme
+```scheme
 (define (fact h)
   (lambda (n)
     (if (= n 0) 1
@@ -186,7 +186,7 @@ category: blog
 
 将 fact 的参数换成 g，将 Y 的参数换成 f；Y 最里面的 lambda 可以计算一次：
 
-``` scheme
+```scheme
 (define (fact g)
   (lambda (n)
     (if (= n 0) 1
@@ -202,7 +202,7 @@ category: blog
 至此，通过以上的10步“重构”操作，成功地推导/提取除了 Y，将一个递归函数 factorial 分解为两个函数：Y和F。Y 负责递归，而 F 负责终止递归。Perfect！
 这个推导过程并不容易，其中第5，6步尤其关键，是整个变换的核心步骤，其他的基本都是参数化的过程。另外补充一点，上面推导出来的 Y 和之前定义的 Y 并不完全相同：
 
-``` scheme
+```scheme
 (define (Y f)
  ((lambda (x) (f (x x))
   (lambda (x) (f (x x))))
