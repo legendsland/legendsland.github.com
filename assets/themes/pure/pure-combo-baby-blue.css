@@ -684,12 +684,14 @@ aside a,aside a:visited {
 */
 pre,code {
 	font-family: Consolas, 'Liberation Mono', Courier, monospace;
-	color: #333;
-	background: rgb(250, 250, 250); 
+
+  /* color defined by pygments */
+	/* color: #333;
+	background: rgb(250, 250, 250); */
 }
 
 code {
-	padding: 0.2em 0.4em;
+	/* padding: 0.2em 0.4em; */
 	white-space: nowrap;
 }
 

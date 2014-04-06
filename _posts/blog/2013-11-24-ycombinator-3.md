@@ -10,13 +10,13 @@ category: blog
 
 ##1. 最原始的 factorial 定义
 
-```scheme
+{% highlight scm %}
 (define (factorial n)
 (if (= n 0) 1
     (* n (factorial (- n 1)))))
 
 (factorial 10)
-```
+{% endhighlight %}
 
 在任何编程语言的教材上面讲解函数的这一章都会看到。这种递归写法的关键是编程语言支持：
 
@@ -27,26 +27,26 @@ category: blog
 
 ##2. 将函数体内的 factorial 参数化
 
-```scheme
+{% highlight scm %}
 (define (factorial g)
  (lambda (n)
    (if (= n 0) 1
        (* n ((g g) (- n 1))))))
 
 ((factorial factorial) 10)
-```
+{% endhighlight %}
 
 将参数 n 转移到函数内部，然后增加一个新参数 g，并把 factorial 自己作为参数 g 传递进去。
 
 ##3. Inline
 
-```scheme
+{% highlight scm %}
 ((factorial factorial) 10) 
-```
+{% endhighlight %}
   
 看起来不是我们期望的形式，我们最终期望将 factorial 分解为 Y（抽象出来的递归结构）和 F（实质性的计算），因此将这个表示是用定义 Inline，就会写成：
 
-```scheme
+{% highlight scm %}
 (((lambda (g)
    (lambda (n)
     (if (= n 0) 1
@@ -56,7 +56,7 @@ category: blog
       (if (= n 0) 1
           (* n ((g g) (- n 1)))))))
 10)
-```
+{% endhighlight %}
 
 虽然看起来很丑，但计算结果是正确的，下面我们将从中提取（抽象/重构）出 Y 和 F。
 
@@ -64,7 +64,7 @@ category: blog
 
 很明显有重复的代码，这相同的部分可以定义一个新函数：(lambda (x) (x x))
 
-```scheme
+{% highlight scm %}
 (((lambda (x)
   (x x))
   (lambda (g)
@@ -72,7 +72,7 @@ category: blog
       (if (= n 0) 1
           (* n ((g g) (- n 1)))))))
 10)
-```
+{% endhighlight %}
 
 ##5. 将函数内部（不愿意看到的）代码提取出来
 
@@ -82,7 +82,7 @@ category: blog
 
 提取内部代码的方法，就是将它当作参数：
 
-```scheme
+{% highlight scm %}
 ((lambda (x)
  (x x))
  (lambda (g)
@@ -92,11 +92,11 @@ category: blog
           (* n (h (- n 1))))))
     (g g))))
 10)
-```
+{% endhighlight %}
 
 不！不要运行上面代码，会死循环的，因为这个参数 (g g) 会无限调用它自己！解决的方法也很简单，将它用 lambda 封装起来：
 
-```scheme
+{% highlight scm %}
 (((lambda (x)
   (x x))
   (lambda (g)
@@ -106,11 +106,11 @@ category: blog
            (* n (h (- n 1))))))
      (lambda (v) ((g g) v)))))
 10)
-```
+{% endhighlight %}
 
 ##6. 用同样的方法，将 (g g) 继续提取出去：
 
-```scheme
+{% highlight scm %}
 (((lambda (x)
   (x x))
   (lambda (g)
@@ -122,13 +122,13 @@ category: blog
      f))
     (lambda (v) ((g g) v)))))
 10)
-```
+{% endhighlight %}
 
 ##7. 抽取出 fact
 
 此时，在最里面的已经没有任何“奇怪”的计算，可以将计算 factorial 的部分抽象出来，命名为一个新的函数 fact：
 
-```scheme
+{% highlight scm %}
 (define (fact h)
   (lambda (n)
     (if (= n 0) 1
@@ -141,13 +141,13 @@ category: blog
       (fact f))
     (lambda (v) ((g g) v)))))
 10)
-```
+{% endhighlight %}
 
 ##8. 将 fact 提取到最外层
 
 同样使用参数化的技巧：
 
-```scheme
+{% highlight scm %}
 (define (fact h)
   (lambda (n)
     (if (= n 0) 1
@@ -161,13 +161,13 @@ category: blog
     (lambda (v) ((g g) v))))))
  fact)
 10)
-```
+{% endhighlight %}
 
 ##9. 定义 Y
 
 到目前为之，fact 的定义已经提取出来，而且作为最外层的参数传递给一个 lambda 表达式，这个 lambda 就是我们寻找的 Y：
 
-```scheme
+{% highlight scm %}
 (define (fact h)
   (lambda (n)
     (if (= n 0) 1
@@ -180,13 +180,13 @@ category: blog
     ((lambda (v) (h v))
      (lambda (v) ((g g) v))))))
 ((Y fact) 10)
-```
+{% endhighlight %}
 
 ##10. 整理 Y
 
 将 fact 的参数换成 g，将 Y 的参数换成 f；Y 最里面的 lambda 可以计算一次：
 
-```scheme
+{% highlight scm %}
 (define (fact g)
   (lambda (n)
     (if (= n 0) 1
@@ -197,16 +197,16 @@ category: blog
   (lambda (g) (f (lambda (v) ((g g) v))))))
 
 ((Y fact) 10)
-```
+{% endhighlight %}
 
 至此，通过以上的10步“重构”操作，成功地推导/提取除了 Y，将一个递归函数 factorial 分解为两个函数：Y和F。Y 负责递归，而 F 负责终止递归。Perfect！
 这个推导过程并不容易，其中第5，6步尤其关键，是整个变换的核心步骤，其他的基本都是参数化的过程。另外补充一点，上面推导出来的 Y 和之前定义的 Y 并不完全相同：
 
-```scheme
+{% highlight scm %}
 (define (Y f)
  ((lambda (x) (f (x x))
   (lambda (x) (f (x x))))
-```
+{% endhighlight %}
 
 原因在于推导出来的 Y 是基于 applicative eval 的 scheme， (lambda (v) ((g g) v)) 不能直接写成 (g g) 造成了这个差异，但是在 normal eval 的语言里面，比如 Haskell 可以直接写成这样。
 

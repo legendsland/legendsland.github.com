@@ -34,15 +34,15 @@ YF = (λf.(λx.f(x x))(λx.f(x x))) F
 
 以 factorial 为例，它的 scheme 描述就是：
 
-```scheme
+{% highlight scm %}
 (lambda (n)
   (if (= n 0) 1
       (* n (???  (- n 1)))))
-```
+{% endhighlight %}
 
 里面的 ??? ，可以一直这样扩展下去：
 
-```scheme
+{% highlight scm %}
 (lambda (n)
   (if (= n 0) 1
       (* n ((lambda (n)
@@ -50,16 +50,16 @@ YF = (λf.(λx.f(x x))(λx.f(x x))) F
                   (* n (???  (- n 1)))))
             (- n 1)))))
 ...
-```
+{% endhighlight %}
 
 但如果存在一个函数 g ，等价于 ???，那么就能代替这种无穷过程，factorial 就可以写成：
 
-```scheme
+{% highlight scm %}
 (lambda (g)
  (lambda (n)
    (if (= n 0) 1
        (* n (g  (- n 1))))))
-```
+{% endhighlight %}
 
 当然，这是我们最良好的愿望，factorial 如果能表达成这种形式，简直就是编程上的完美，它简要地概括了 factorial 定义的精髓，而且没有无穷的循环，唯一的问题是这个 g 悬挂在哪里，这个 g 到底是什么？有几点可以假设一下：
 
@@ -73,7 +73,7 @@ YF = (λf.(λx.f(x x))(λx.f(x x))) F
 
 (Y facorial)  根据 YF = F(YF) 的特性：
 
-```scheme
+{% highlight scm %}
 =>
 facorial (Y facorial) 
 =>
@@ -86,7 +86,7 @@ facorial (Y facorial)
 (lambda (n)
    (if (= n 0) 1
        (* n ((Y facorial ) (- n 1))))))
-```
+{% endhighlight %}
 
 这是新得到的 lambda，这个 lambda 是可以直接计算出结果的 —— 当参数 n = 0 时！如果 n>0 ，每次计算都会使得 n-1，直到 n=0 为止，所以这个过程会终止。这得益于 if，if 先计算它的条件，如果成立则计算成立情况下的结果，根本就不管不成功下的结果了，这样就使得整个表达式能够返回。Y 完美地抽象出了 factorial 的递归过程。
 

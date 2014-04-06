@@ -63,6 +63,8 @@ $( function() {
          * TODO: 这是临时做法，对更丰富的 style，需要用独立的 css 文件
          * */
         $('.gist').wrap( "<div class='gist-container' style='font-size:13px !important;'></div>" );
+        $('.gist').wrap( "<div class='highlight'><code></code></div>" );
+        
 
         // 如果有数学公式，加载 MathJax
         // 目前根据 post 里面是否存在 $..$ 判断
