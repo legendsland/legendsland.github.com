@@ -4,10 +4,13 @@ auto:          true
 markdown:      kramdown
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
 
+pygments: true
+
 redcarpet:
   extensions: []
 
 kramdown:
+  input: GFM
   use_coderay: true
   coderay:
     coderay_line_numbers: nil
