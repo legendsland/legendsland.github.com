@@ -75,7 +75,7 @@ li .post-intro {
 }
 
 /* 代码不自动换行 */
-pre { 
+pre code { 
   white-space: pre;
   word-wrap: normal;
   overflow: auto;

@@ -17,9 +17,9 @@ void qsort(void *base, size_t nmemb, size_t size, int(*compar)(const void*, cons
 
 对。它的万能取决于 C 语言中的 void* ，因为它能代表任意类型。但问题是，当你使用这种“灵活”的类型时，每次都需要自己手工对其“具体化”，你要明确它的实际大小（size），当使用指针操作的时候，每次都需要带上这个 size，比如当你计算第 10 个（从 0 开始）元素的时候：
 
-```c
+{% highlight c %}
 base + size*10
-```
+{% endhighlight %}
 
 但如果 base 类型是具体的，比如 int*，这时就只需要写成：
 

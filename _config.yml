@@ -12,9 +12,7 @@ redcarpet:
 
 kramdown:
   input: GFM
-  use_coderay: true
-  coderay:
-    coderay_line_numbers: nil
+  enable_coderay: false
 
 textile_ext:   textile
 pygments:         true
