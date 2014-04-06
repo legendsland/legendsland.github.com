@@ -43,9 +43,9 @@ output:
 
 在 console 使用 node 执行该代码，并将终端的输出 pipe 到 dot，生成 png 图片。在 vi 中是这样的：
  
-~~~~ 
+``` 
 w || !node % | dot -Tpng -o %.png
-~~~~
+```
  
 如果你这样解决，当然可以得到答案，但远非最佳。因为效率实在是太低了。原因在于有很多重复的操作，比如图中的节点 9，以它为根节点的子树都有4棵，这样的操作重复了4次，其实只要1次就够了。因为从节点9跳出去的最短路径（可能有多条，但步数相等）永远是一样的。
  
@@ -63,18 +63,18 @@ w || !node % | dot -Tpng -o %.png
 
 其中 choose 就是所谓 amb 函数，从一个列表中选一个出来。这段代码看起来没有任何的非尾递归，jump-naive 实质上可以写成迭代函数：
 
-~~~~ scheme
+``` scheme
 (define (jump-naive-loop i)
   (let loop ([n i])
     (loop (select-naive steps n))))
 (jump-naive-loop 0)
-~~~~
+```
 
 神奇的地方是 choose，它能自己记录分支点，当一个分支结束后，能自动从下一处继续计算。就好像 choose 分化出了好多线程，这些线程分别计算自己的后续路径。
 
 如果计算路径，需要修改 jump 函数，可以使用 stack 保存路径：
 
-~~~~ scheme
+``` scheme
 (define min-steps 99)                                ;; 保存当前最短步数
 (define stack (make-parameter '(-1)))                ;; 保存当前路径
 (define results (make-parameter '()))                ;; 保存所有路径
@@ -100,7 +100,7 @@ w || !node % | dot -Tpng -o %.png
 (with-amb (amb-collect (jump 0)))                     ;; 执行 amb
 (pretty-print min-steps)                              ;; 打印最短步数
 (pretty-print (results))                              ;; 打印所有的路径，你可以从中选出最短的
-~~~~
+```
 
 这里除了保存路径，还对 select 进行了优化，当当前节点可以直接跳出事，使用 (amb) 直接放弃该分支，返回到上层回溯点。amb 函数可使用 call-with-current-continuation (call/cc) 实现，当能迅速判断很多分支不符合条件（迅速死去），使用 amb 非常方便。
 
@@ -123,7 +123,7 @@ $$
 
 这便是这个问题的递归结构。首先要找到那个衡量最优解的“值”（这里是步数 $s_i$），然后从那里开始分析。依次便能写出递归算法：
 
-~~~~ scheme
+``` scheme
 ;; 构造集合  { i+1,  .. i+a[i] }
 (define (r i)
   (let ((n (list-ref steps i)))
@@ -135,7 +135,7 @@ $$
                     (map (lambda (j)     ;; 计算 { s[i+1], ... s[i+a[i]]  }
                            (jump-recur j)) (r i))))))
 (jump-recur 0)  ;; 3
-~~~~
+```
 
 计算出最短的步数是 3.
 
@@ -145,7 +145,7 @@ $$
 
 memoization 是 memo 的名词，而不是 memorize 的名词。memoization 专指计算机上的优化技术。通过记录已经算出的结果，来提高下次碰到同样问题的计算速度：将算过的 jump-recur 保存起来，对一个 i 计算前先查查是否算过，如果算过就直接得到结果：
 
-~~~~ scheme
+``` scheme
 (define (jump-recur i)
   (let (memo (loop-up i))
      (if (not (= memo 0)) memo                    ;; 有记录则直接返回
@@ -153,7 +153,7 @@ memoization 是 memo 的名词，而不是 memorize 的名词。memoization 专�
              (record (add1 (argmin (lambda(x) x)  ;; 记录并返回结果
                     (map (lambda (j)              ;; 计算 { s[i+1], ... s[i+a[i]] }
                            (jump-recur j)) (r i)))))))))
-~~~~
+```
 
 对很多重复计算的情况，这样会大幅提高效率。
 
