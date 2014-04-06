@@ -143,7 +143,7 @@ template<typename _RandomAccessIterator, typename _Compare>
 {% highlight c %}
 template<typename _RandomAccessIterator, typename _Compare>
   inline void
-  generic_sort(_RandomAccessIterator __first, _RandomAccessIterator __last, _Compare __comp) {
+  generic_qsort(_RandomAccessIterator __first, _RandomAccessIterator __last, _Compare __comp) {
 
     if( __last - __first <= 1 ) 
       return;
@@ -163,8 +163,8 @@ template<typename _RandomAccessIterator, typename _Compare>
 
     middle = small_end + 1;
 
-    generic_sort(__first, middle, __comp);
-    generic_sort(middle+1, __last, __comp);
+    generic_qsort(__first, middle, __comp);
+    generic_qsort(middle+1, __last, __comp);
  }
 
   /* __comp 的接口定义与 C 里面 qosrt 的不一样, C 要求返回 -1, 0, 1 */
