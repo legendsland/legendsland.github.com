@@ -17,6 +17,7 @@ pygments:         true
 paginate:         6
 permalink:        /:categories/:title 
 
+gh-token: 7c6ff84c0dcf15f18aece934fd332006d92f52bd
 title:           
 feed:             /atom.xml
 author:

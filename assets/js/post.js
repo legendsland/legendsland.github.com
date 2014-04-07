@@ -35,8 +35,125 @@ function toggle(el, showtxt, hidetxt) {
 	}
 }
 
+function add_first_comment(new_comment, cb) {
+ 
+  var page_url = window.location.pathname;
+
+    cmt_idx.content.push( {"page":page_url,"path":1+parseInt(cmt_idx.max_id)+""} )
+
+    // add new page
+    $.ajax({
+      url: 'https://api.github.com/repos/oc-github/gt-cmt/contents/comments?access_token=7c6ff84c0dcf15f18aece934fd332006d92f52bd',
+      type: 'PUT',
+      data: JSON.stringify( {
+        "message": "my commit message",
+        "committer": {
+          "name": "oc.github",
+          "email": "oc.github@gmail.com"
+        },
+        "content": btoa(unescape(encodeURIComponent(JSON.stringify( cmt_idx.content )))),
+        "sha": cmt_idx.sha
+      }),
+      success: function (data) {
+        // create page comment file
+        $.ajax({
+          url: 'https://api.github.com/repos/oc-github/gt-cmt/contents/' + (++cmt_idx.max_id) + '?access_token=7c6ff84c0dcf15f18aece934fd332006d92f52bd',
+          type: 'PUT',
+          data: JSON.stringify( {
+            "message": "my commit message",
+            "committer": {
+              "name": "oc.github",
+              "email": "oc.github@gmail.com"
+            },
+            "content": btoa(unescape(encodeURIComponent(JSON.stringify( [new_comment] )))),
+            "sha": cmt_idx.sha
+          }),
+          success: function (data) {
+
+          }
+        });
+
+        cb(data);
+      }
+    });
+}
+
+
+function add_comment( new_comment, cb ) {
+
+  cmt.comments.push( new_comment );
+
+  // 如果该page已经有评论，直接添加
+  $.ajax({
+    url: 'https://api.github.com/repos/oc-github/gt-cmt/contents/' + cmt.path + '?access_token=7c6ff84c0dcf15f18aece934fd332006d92f52bd',
+    type: 'PUT',
+    data: JSON.stringify( {
+      "message": "my commit message",
+      "committer": {
+        "name": "oc.github",
+        "email": "oc.github@gmail.com"
+      },
+      "content": btoa(unescape(encodeURIComponent(JSON.stringify( cmt.comments )))),
+      "sha": cmt.sha
+    }),
+    success: function (data) {
+      cb(data);
+    //  $.get('https://api.github.com/repos/oc-github/gt-cmt/contents/comments.json', function (data) {
+    //    $('.comment').html( decodeURIComponent( escape( atob(data.content) )) );
+    //  });
+    }
+  });
+
+}
+
+var cmt_idx = {};
+var cmt = {};
+function load_comments( ) {
+
+  var raw_url = window.location.pathname;
+
+  $.get('https://api.github.com/repos/oc-github/gt-cmt/contents/comments', function (data) {
+
+     cmt_idx.content = JSON.parse( decodeURIComponent( escape( atob(data.content) )));
+     cmt_idx.sha = data.sha;
+     cmt_idx.max_id = 0;
+
+     $.each(cmt_idx.content, function(i,c) {
+
+       if( c.path > cmt_idx.max_id ) cmt_idx.max_id = c.path;  // get max id : string !!!!
+
+       // found page comments
+       if( c.page === raw_url ) {
+          $.get('https://api.github.com/repos/oc-github/gt-cmt/contents/' + c.path, function (data) {
+
+            cmt.path = c.path;
+            cmt.comments = JSON.parse( decodeURIComponent( escape( atob(data.content) )));
+            cmt.sha =  data.sha;
+
+            console.log( cmt );
+            /* 显示评论框 */
+            $.each( cmt.comments, function(i, c) {
+
+                var $comments = $('.comments ul');
+                
+                if( i === 0 )
+                  $comments.html(''); //clear
+
+                $comments.append( '<li class="pure-menu-heading"><p>' +  c.content + '</p> </li>' );
+            });
+
+          });
+        }
+    });
+  });
+
+
+}
+
 // onload
 $( function() {
+
+        load_comments();
 
 		    // generate table of contents
         init_toc();
@@ -66,6 +183,24 @@ $( function() {
         
         // 给 footnotes 之上增加分割线
         $('.footnotes').before('<hr>');
+
+        // comment submit button
+        $('.comments button').click(function() {
+            // get comment content
+            var comment = $('.comments textarea').val();
+            var add_cmt = add_comment;
+
+            if( cmt.path === undefined ) 
+              add_cmt = add_first_comment;
+
+            add_cmt( {"id": "unknown", "content":  comment},  function(d) {
+
+                var $comments = $('.comments ul');
+          
+                $comments.append( '<li class="pure-menu-heading"><p>' +  comment + '</p> </li>' );
+            });
+
+        });
 
 });
 
