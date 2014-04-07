@@ -38,7 +38,6 @@ function toggle(el, showtxt, hidetxt) {
 // onload
 $( function() {
 
-
 		    // generate table of contents
         init_toc();
 
@@ -65,26 +64,6 @@ $( function() {
         $('.gist').wrap( "<div class='gist-container' style='font-size:13px !important;'></div>" );
         $('.gist').wrap( "<div class='highlight'><code></code></div>" );
         
-
-        // 如果有数学公式，加载 MathJax
-        // 目前根据 post 里面是否存在 $..$ 判断
-        // 对于 block math 使用 $$..$$ 被转换成了 <![CDATA[  下面的方法无法判断
-        // 但对于存在 block math 的 post 一定都存在 inline 的 symbol
-        if( null !== $('#main').text().match(/\$([^$]+)\$/) ) { // 不带 g 只需要检测到第一个存在即可
- 
-          // TODO: fucking slow
-          $.getScript("http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function(){
-             MathJax.Hub.Config({
-                jax: ["input/TeX", "output/HTML-CSS"],
-                tex2jax: {
-                  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
-                  processEscapes: true
-              }
-            });
-          });
-        }
-
         // 给 footnotes 之上增加分割线
         $('.footnotes').before('<hr>');
 

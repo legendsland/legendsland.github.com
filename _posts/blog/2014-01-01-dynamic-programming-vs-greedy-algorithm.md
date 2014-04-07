@@ -3,6 +3,7 @@ layout: post
 title: 递归求解
 description: 动态规划、贪心算法，以及非确定性计算
 category: blog
+math: true
 ---
 
 ## 求解最短路径
@@ -39,7 +40,7 @@ output:
  
 下面是生成上图的 Javascript 代码，其中 gendot 函数用来生成 dot 源码。这个过程就是这种暴力求解的过程：
 
-{% gist 9967055 %}
+{% gist legendsland/9967055 %}
 
 在 console 使用 node 执行该代码，并将终端的输出 pipe 到 dot，生成 png 图片。在 vi 中是这样的：
  
@@ -59,7 +60,7 @@ w || !node % | dot -Tpng -o %.png
  
 非确定性的代码，可以让我们算法看起来更加简洁和清晰:
 
-{% gist 9968337 %}
+{% gist legendsland/9968337 %}
 
 其中 choose 就是所谓 amb 函数，从一个列表中选一个出来。这段代码看起来没有任何的非尾递归，jump-naive 实质上可以写成迭代函数：
 
