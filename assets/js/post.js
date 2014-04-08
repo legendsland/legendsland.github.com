@@ -46,7 +46,7 @@ function add_first_comment(new_comment, cb) {
       url: 'https://api.github.com/repos/oc-github/gt-cmt/contents/comments?access_token=7c6ff84c0dcf15f18aece934fd332006d92f52bd',
       type: 'PUT',
       data: JSON.stringify( {
-        "message": "my commit message",
+        "message": "new commit file",
         "committer": {
           "name": "oc.github",
           "email": "oc.github@gmail.com"
@@ -60,7 +60,7 @@ function add_first_comment(new_comment, cb) {
           url: 'https://api.github.com/repos/oc-github/gt-cmt/contents/' + (++cmt_idx.max_id) + '?access_token=7c6ff84c0dcf15f18aece934fd332006d92f52bd',
           type: 'PUT',
           data: JSON.stringify( {
-            "message": "my commit message",
+            "message": "new comment",
             "committer": {
               "name": "oc.github",
               "email": "oc.github@gmail.com"
@@ -88,7 +88,7 @@ function add_comment( new_comment, cb ) {
     url: 'https://api.github.com/repos/oc-github/gt-cmt/contents/' + cmt.path + '?access_token=7c6ff84c0dcf15f18aece934fd332006d92f52bd',
     type: 'PUT',
     data: JSON.stringify( {
-      "message": "my commit message",
+      "message": "new comment",
       "committer": {
         "name": "oc.github",
         "email": "oc.github@gmail.com"
@@ -104,27 +104,6 @@ function add_comment( new_comment, cb ) {
     }
   });
 
-}
-
-// 将精确时间转换成 Human readable
-function comment_time( datestring ) {//"2014-04-08T05:50:37.803Z" 
-  return datestring ? datestring.substr(0,10) : ""; 
-}
-
-function commenter_url (commenter) {
-  var re_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/gi;
-  var re_url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-  var re_url_http = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
-  
-  if( re_email.test(commenter) ) {
-    return '<a href="mailto:' + commenter + '">' + commenter + '</a>';
-  } else if( re_url.test(commenter) ) {
-    return '<a href="http://' + commenter + '">' + commenter + '</a>';
-  } else if( re_url_http.test(commenter) ) {
-    return '<a href="' + commenter + '">' + commenter + '</a>';
-  } else {
-    return commenter;
-  }
 }
 
 var cmt_idx = {};
@@ -146,7 +125,7 @@ function load_comments( ) {
        // found page comments
        if( c.page === raw_url ) {
           $.get('https://api.github.com/repos/oc-github/gt-cmt/contents/' + c.path, function (data) {
-
+            console.log( decodeURIComponent( escape( atob(data.content) )) );
             cmt.path = c.path;
             cmt.comments = JSON.parse( decodeURIComponent( escape( atob(data.content) )));
             cmt.sha =  data.sha;
@@ -161,8 +140,6 @@ function load_comments( ) {
         }
     });
   });
-
-
 }
 
 // onload
@@ -210,15 +187,15 @@ $( function() {
               add_cmt = add_first_comment;
 
             var c = {"id": "unknown", "commenter": commenter || "Anonymous", "content":  comment,  "date": new Date().toJSON() }
+
             add_cmt(c,  function(d) {
               $('.comments').append( _.template(tpl.comment, {cmt: c}) );
 
               // clear prev textarea
-            $('.comment-header textarea').val('');
-            $('.comment-content textarea').val('');
+              $('.comment-header textarea').val('');
+              $('.comment-content textarea').val('');
 
             });
-
         });
 
 });

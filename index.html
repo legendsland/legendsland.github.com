@@ -18,6 +18,47 @@ title: Home
   <img src="/assets/images/street.jpg"></img>
 </div>
 
+<div class='comments', style='display:none;'>
 
+<script>
+
+  // 获取 gt-cmi 最新的 event 以得到最新的留言/评论，本来是想 email 通知自己，js 似乎做不到
+
+  $.get('https://api.github.com/repos/oc-github/gt-cmt/commits', function (data) {
+
+     var commits = data; //github returns objects array
+
+     for(var i=0,j=0; i<commits.length && j<5; ++i) {
+
+       var c = commits[i].commit;
+       var url = commits[i].url;
+
+       // get first 5 with commit message is 'new comment'
+       if( c.message === 'new comment' ) {
+
+           ++j;
+          // get commit detailed data
+          $.get(url, function (data) {
+            var patch = (data.files)[0].patch; //github return object
+
+            $.each( patch.split('\n'), function(i, v) {
+
+              // look for addition line
+              if( v[0] === '+' ) {
+                var comments = JSON.parse( v.substring(1, v.length) );
+                var last_comment = comments[comments.length-1];
+                $('.comments').append( _.template( tpl.newest, {cmt: last_comment} ) );
+              }
+
+            });
+            
+          });
+        }
+    }
+  });
+
+</script>
+
+</div>
 
 
