@@ -106,6 +106,27 @@ function add_comment( new_comment, cb ) {
 
 }
 
+// 将精确时间转换成 Human readable
+function comment_time( datestring ) {//"2014-04-08T05:50:37.803Z" 
+  return datestring ? datestring.substr(0,10) : ""; 
+}
+
+function commenter_url (commenter) {
+  var re_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/gi;
+  var re_url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var re_url_http = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+  
+  if( re_email.test(commenter) ) {
+    return '<a href="mailto:' + commenter + '">' + commenter + '</a>';
+  } else if( re_url.test(commenter) ) {
+    return '<a href="http://' + commenter + '">' + commenter + '</a>';
+  } else if( re_url_http.test(commenter) ) {
+    return '<a href="' + commenter + '">' + commenter + '</a>';
+  } else {
+    return commenter;
+  }
+}
+
 var cmt_idx = {};
 var cmt = {};
 function load_comments( ) {
@@ -133,13 +154,7 @@ function load_comments( ) {
             console.log( cmt );
             /* 显示评论框 */
             $.each( cmt.comments, function(i, c) {
-
-                var $comments = $('.comments ul');
-                
-                if( i === 0 )
-                  $comments.html(''); //clear
-
-                $comments.append( '<li class="pure-menu-heading"><p>' +  c.content + '</p> </li>' );
+              $('.comments').append( _.template(tpl.comment, {cmt: c}) ); 
             });
 
           });
@@ -153,7 +168,7 @@ function load_comments( ) {
 // onload
 $( function() {
 
-        load_comments();
+        load_comments();//
 
 		    // generate table of contents
         init_toc();
@@ -185,19 +200,23 @@ $( function() {
         $('.footnotes').before('<hr>');
 
         // comment submit button
-        $('.comments button').click(function() {
+        $('.comment-add button').click(function() {
             // get comment content
-            var comment = $('.comments textarea').val();
+            var commenter = $('.comment-header textarea').val();
+            var comment = $('.comment-content textarea').val();
             var add_cmt = add_comment;
 
             if( cmt.path === undefined ) 
               add_cmt = add_first_comment;
 
-            add_cmt( {"id": "unknown", "content":  comment},  function(d) {
+            var c = {"id": "unknown", "commenter": commenter || "Anonymous", "content":  comment,  "date": new Date().toJSON() }
+            add_cmt(c,  function(d) {
+              $('.comments').append( _.template(tpl.comment, {cmt: c}) );
 
-                var $comments = $('.comments ul');
-          
-                $comments.append( '<li class="pure-menu-heading"><p>' +  comment + '</p> </li>' );
+              // clear prev textarea
+            $('.comment-header textarea').val('');
+            $('.comment-content textarea').val('');
+
             });
 
         });

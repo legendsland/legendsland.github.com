@@ -87,23 +87,36 @@ MathJax.Hub.Config({
 
 
     <div class="comments">
-      <div class="pure-menu pure-menu-open">
-        <ul class="comments-data">
-            暂无评论
-            <!--li> <p class="commet-content"></p> </li-->
-        </ul>
+
+     </div>
+
+
+  <div class="discussion-bubble">
+    <img class="discussion-bubble-avatar" src="/assets/images/chimp_48.jpg" width="48" height="48">
+    <div class="discussion-bubble-content bubble">
+      <div class="discussion-bubble-inner">
+
+        <div class="js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview">
+
+          <div class="tab-content write-content js-write-content">
+
+            <div class="comment-header normal-comment-header">
+               <textarea name="comment[body]" placeholder="Your id" class=""></textarea>
+            </div>
+
+            <div class="comment-content">
+              <textarea name="comment[body]" placeholder="Leave a comment" class="js-comment-field js-size-to-fit"></textarea>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="textarea-frame">
-        <textarea class="js-comment-field js-size-to-fit" placeholder="Leave a comment" name="comment[body]"></textarea>
-      </div>  
-
-      <div class="form-actions">
-        <button class="button primary js-comment-submit" type="submit">Add Comment</button>
-      </div>
-
     </div>
+  </div>
 
+  <div class="comment-add">
+    <button class="button primary js-comment-submit" type="submit">Add Comment</button>
+  </div>
 
     </div>
 
