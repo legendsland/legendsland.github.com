@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hacking Github Pages
-description: 
+description:
 category: blog
 ---
 
@@ -27,7 +27,7 @@ Jekyll 是用 Ruby 实现的静态网页生成框架，它处理 markdown 文档
 
 你是 Hacker，你想控制一切，你必须控制一切。
 
-Github 当然是为 hacker 而生。它提供了[丰富的 api 接口][3]，让你通过程序访问到 git 系统里面的数据，包括 Create, Read, Update, Delete 等等。合理地使用这些接口，并组织自己的数据文件，比如使用 json 格式，它能提供给你简易的数据库访问功能。使用 Javascript 将其整合到静态页面中，你便获得了动态 Github Pages 的功能 —— 虽然很原始。
+Github 当然是为 hacker 而生。它提供了[丰富的 Api 接口][3]，让你通过程序访问到 git 系统里面的数据，包括 Create, Read, Update, Delete 等等。合理地使用这些接口，并组织自己的数据文件，比如使用 json 格式，它能提供给你简易的数据库访问功能。使用 Javascript 将其整合到静态页面中，你便获得了动态 Github Pages 的功能 —— 虽然很原始。
 
 这个想法就像是，将服务器的功能完全剥离，只保留数据的交互功能，所有的逻辑全部放到 client-side 浏览器中执行。好处自然是服务器极低的负载，坏处就是浏览器需要承受大量的计算和渲染。当然，作为不会有多少数据的评论系统，这样的做法是可以接受的。何况，这是完全免费的。
 
@@ -44,4 +44,6 @@ Github 当然是为 hacker 而生。它提供了[丰富的 api 接口][3]，让�
 [3]: https://developer.github.com
 [4]: https://pages.github.com
 [5]: https://www.schneier.com
+
+
 

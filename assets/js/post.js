@@ -27,7 +27,6 @@ $('.content h2').each(function(index) {
 
 function toggle(el, showtxt, hidetxt) {
 	el.toggle();
-	console.log( el.prev());
 	if( el.is(":hidden") ) {
 		el.prev().text(showtxt);
 	} else {
@@ -125,7 +124,6 @@ function load_comments( ) {
        // found page comments
        if( c.page === raw_url ) {
           $.get('https://api.github.com/repos/oc-github/gt-cmt/contents/' + c.path, function (data) {
-            console.log( decodeURIComponent( escape( atob(data.content) )) );
             cmt.path = c.path;
             cmt.comments = JSON.parse( decodeURIComponent( escape( atob(data.content) )));
             cmt.sha =  data.sha;
