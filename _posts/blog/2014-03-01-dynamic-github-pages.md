@@ -1,9 +1,16 @@
 ---
 layout: post
-title: 动态 Github Pages
+title: Hacking Github Pages
 description: 
 category: blog
 ---
+
+> Someone who thinks outside the box. 
+> Someone who discards conventional wisdom and does something else instead. 
+> Someone who looks at the edge and wonders what's beyond. 
+> Someone who sees a set of rules and wonders what happens if you don't follow them. 
+> <cite> [Bruce Schneier][5] </cite>
+
 
 如果你还没有读过 [Blogging Like a Hacker][1]，赶紧读读。如果你已经读了，把你并且在 github 上面有自己的 [pages][4] 当作博客，使用 markdown 写作，用 Jekyll 设计页面，用 git 发布，你可以继续往下看。
 
@@ -36,3 +43,5 @@ Github 当然是为 hacker 而生。它提供了[丰富的 api 接口][3]，让�
 [2]: http://disqus.com
 [3]: https://developer.github.com
 [4]: https://pages.github.com
+[5]: https://www.schneier.com
+

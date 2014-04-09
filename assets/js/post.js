@@ -130,7 +130,6 @@ function load_comments( ) {
             cmt.comments = JSON.parse( decodeURIComponent( escape( atob(data.content) )));
             cmt.sha =  data.sha;
 
-            console.log( cmt );
             /* 显示评论框 */
             $.each( cmt.comments, function(i, c) {
               $('.comments').append( _.template(tpl.comment, {cmt: c}) ); 
