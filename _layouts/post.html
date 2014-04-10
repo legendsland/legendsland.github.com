@@ -3,23 +3,6 @@ name : post
 layout: default
 ---
 
-{% if page.math %}
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-                jax: ["input/TeX", "output/HTML-CSS"],
-                tex2jax: {
-                  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
-                  processEscapes: true
-              }
-            });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-{% endif %}
-
-
 {% assign found_prev = false %}
 {% assign found_next = false %}
 
@@ -54,7 +37,7 @@ MathJax.Hub.Config({
           <div class="pure-u-1-2 post-author"><a href="/about">{{ site.author.name }}</a></div>
         </div>
           {% if page.description %}
-          <p class="post-intro">【简介】{{page.description}}</p>
+          <p class="post-intro">{{page.description}}</p>
           {% endif %}
       </div>
     </div>
@@ -127,6 +110,24 @@ MathJax.Hub.Config({
 </div>
 
 
-<!-- js preprocessing post -->
+<!-- processing post after loading finish  -->
 <script type="text/javascript" src="/assets/js/post.js"></script>
+
+{% if page.math %}
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+                jax: ["input/TeX", "output/HTML-CSS"],
+                tex2jax: {
+                  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+                  processEscapes: true
+              }
+            });
+</script>
+
+<!-- should put all links at last in case blocked or slow access -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+{% endif %}
+
 

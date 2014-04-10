@@ -75,17 +75,13 @@ li .post-intro {
 }
 
 /* 代码不自动换行 */
-pre code { 
+pre code  { 
   white-space: pre;
   word-wrap: normal;
   overflow: auto;
   font-size:13px;  /* 让代码字体小点 */
 }
 
-/* post 部分的宽度 */
-.header, .content {
- /* max-width: 600px; */
-}
 
 blockquote {
 font-family: Georgia, serif;

