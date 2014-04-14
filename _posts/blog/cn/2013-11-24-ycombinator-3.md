@@ -2,7 +2,7 @@
 layout: post
 title: Y Combinator （Part 3 推导）
 description:
-category: blog
+categories: [blog,cn]
 ---
 
 

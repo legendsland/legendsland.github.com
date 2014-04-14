@@ -2,7 +2,7 @@
 layout: post
 title: 图灵机（2）：世上第一个程序
 description: 
-category: blog
+categories: [blog,cn]
 ---
 
 图灵机的一般流程如下（括号中是指令符号）：

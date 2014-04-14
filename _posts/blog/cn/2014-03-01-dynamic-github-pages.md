@@ -2,7 +2,7 @@
 layout: post
 title: Hacking Github Pages
 description:
-category: blog
+categories: [blog,cn]
 ---
 
 > Someone who thinks outside the box. 

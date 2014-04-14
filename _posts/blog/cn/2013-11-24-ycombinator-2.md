@@ -2,7 +2,7 @@
 layout: post
 title: Y Combinator （Part 2 重构）
 description: （没有“实用价值”的）函数式重构
-category: blog
+categories: [blog,cn]
 ---
 
 

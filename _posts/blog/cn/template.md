@@ -2,7 +2,7 @@
 layout: post
 title: 
 description: 
-category: blog
+categories: [blog,cn]
 ---
 
 

@@ -18,12 +18,18 @@ layout: default
   {% endif %}
 {% endfor %}
 
+{% if page.categories contains "cn" %}
+{% assign lang = "cn" %}
+{% else %}
+{% assign lang = "" %}
+{% endif %}
+
 <div id="layout">
   <a href="#menu" id="menulink" class="menu-link"> <span></span> </a>
 
   <div id="menu">
       <div class="pure-menu pure-menu-open">
-          <a class="pure-menu-heading" href="/blog">Blog &#171;</a>
+          <a class="pure-menu-heading" href="/blog/{{lang}}">Blog &#171;</a>
           <ul class="toc"></ul>
       </div>
   </div>
@@ -46,6 +52,7 @@ layout: default
     
       {{ content }}
 
+<!--
       {% if page.previous %} 
         {% if found_prev %}
           <a class="post-paginator pure-button left" href="{{ page.previous.url }}">&#171; {{ page.previous.title }}</a>
@@ -65,7 +72,7 @@ layout: default
       {% else %}
         <a class="post-paginator pure-button pure-button-disabled right" href="#">已经是最后一篇</a>
       {% endif %}
-
+-->
       <div class="clear-float"></div>
 
 

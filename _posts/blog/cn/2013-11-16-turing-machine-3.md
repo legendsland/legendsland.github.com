@@ -2,7 +2,7 @@
 layout: post
 title: 图灵机（3）：合并动作
 description: 
-category: blog
+categories: [blog,cn]
 ---
 
     0010110111011110111110...

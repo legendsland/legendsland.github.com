@@ -2,7 +2,7 @@
 layout: post
 title: 图灵机（1）：简介
 description: 
-category: blog
+categories: [blog,cn]
 ---
 
 <!--p>

@@ -2,7 +2,7 @@
 layout: post
 title: 算法 vs. 代码
 description: 写代码，还是应该写算法？
-category: blog
+categories: [blog,cn]
 math: true
 ---
 

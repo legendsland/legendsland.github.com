@@ -2,7 +2,7 @@
 layout: post
 title: Adpro.cn is Watching You
 description:
-category: blog
+categories: [blog, cn]
 math: true
 ---
 
@@ -18,7 +18,7 @@ math: true
 adpro 名字就说明了是广告相关的东西，最开始我以为那个网站的广告，后来发现几乎所有的网站都有。想必是被强行插入了。于是点击 adpro.cn 发现首页赫然写到 1.2 亿的覆盖面。你知道 1.2 亿的覆盖面怎么来的吗？
 
 
-**偷来的。**
+*偷来的。*
 
 
 ## 隐私偷取函数

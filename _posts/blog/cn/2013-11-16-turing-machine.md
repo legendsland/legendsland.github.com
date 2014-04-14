@@ -2,7 +2,7 @@
 layout: post
 title: The Annotated Annotated Turing
 description: 
-category: blog
+categories: [blog,cn]
 ---
 
 这一系列的文章将向你介绍人类至今为止最了不起（如果不是最，也差不多了）的发明：图灵机。

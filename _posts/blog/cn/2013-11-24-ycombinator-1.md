@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Y Combinator （Part 1 简介）
-category: blog
+categories: [blog,cn]
 ---
 
 

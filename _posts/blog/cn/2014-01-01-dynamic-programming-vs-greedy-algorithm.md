@@ -2,7 +2,7 @@
 layout: post
 title: 递归求解
 description: 动态规划、贪心算法，以及非确定性计算
-category: blog
+categories: [blog,cn]
 math: true
 ---
 
