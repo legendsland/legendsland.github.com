@@ -11,18 +11,19 @@ title: Home
       <ul>
           <li class="pure-menu-selected"><a href="#">Home</a></li>
           <li><a href="/blog">Blog</a></li>
+	  <li><a href="/blog/cn">中文</a></li>
           <li><a href="/about">About</a></li>
       </ul>
+      <img src="/assets/images/eiffel.jpg"></img>
   </div>
-
-  <img src="/assets/images/street.jpg"></img>
 </div>
 
 <div class='comments', style='display:none;'>
 
 <script>
 
-  // 获取 gt-cmi 最新的 event 以得到最新的留言/评论，本来是想 email 通知自己，js 似乎做不到
+  // get lastest comments from commits. 
+  // or send email from js, but it seems impossible.
 
   $.get('https://api.github.com/repos/oc-github/gt-cmt/commits', function (data) {
 
