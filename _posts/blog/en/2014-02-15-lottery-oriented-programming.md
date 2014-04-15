@@ -21,7 +21,7 @@ On the contrary, is [Ken Thompson-back against method][1], Rob Pike wrote:
 > 
 > I recognize this is largely a matter of style. Some people insist on line-by-line tool-driven debugging for everything. But I now believe that thinking—without looking at the code—is the best debugging tool of all, because it leads to better software.
 
-The best and worst tool of debugging is *printf*. It depends on whether you are really thinking and add some *printf* at critical place to print accurate information rather that adding randomly. And it's better to check stack if you do that.
+The best and worst debugging tool are both *printf*. It depends on whether you are really thinking and add some *printf* at critical place to print accurate information rather than adding randomly. And it's better to check stack if you do that.
 
 What would happen if Perlman sits behind you when you're playing violin, and Picasso when you're drawing, Hemingway when you're writing, Steve Jobs when you're designing, and Sheldon when you're working on string theory.
 
