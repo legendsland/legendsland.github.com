@@ -161,7 +161,7 @@ ka = ("To work with us, first talk to us: 6d6f632e646976616440746361746e6f63", 2
       <embed src="http://david.com/david.swf" width="640" height="384" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" bgcolor="#000000" />
 </object>
 
-这个 swf 是无害的，因为它没有和 html 页面及其 Javascript 有任何不可告人的后台交互。但问题是，这段代码怎么会在一家无耻的广告公司的代码中出现，而且还是另一个毫不相干的网址。我觉得是他们在使用工具 uglify 原生 js 的时候，那个工具自己插入进去的，或者更可能整个 js 文件都不是 adpro.cn 自己编写的，说明这家公司的资源完全不在技术方面，而在强行插入方面。如果真是这样，adpro.cn 更显得傻逼。
+这个 swf 是无害的，因为它没有和 html 页面及其 Javascript 有任何不可告人的后台交互。但问题是，这段代码怎么会在一家广告公司的代码中出现，而且还是另一个毫不相干的网址。我觉得是他们在使用工具 uglify 原生 js 的时候，那个工具自己插入进去的，或者更可能整个 js 文件都不是 adpro.cn 自己编写的，说明这家公司的资源完全不在技术方面，而在强行插入方面。这是一家*真正*的广告公司。
 
 ## 强行插入
 
