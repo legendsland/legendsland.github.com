@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Get addicted on Github
+title: How to Get Addicted on Github
 description: 
 categories: [blog]
 ---

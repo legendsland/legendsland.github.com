@@ -6,7 +6,7 @@ categories: [blog]
 ---
 
 
-I promised don't eat any takeout from local restaurant, specially those small and dirty. Takeout food from those restaurants are not only junk food lack of nutrients but worse. They are not safe, maybe contain some harmful or chemical materials that would hurt you body. The best food to eat is cooked from yourself before you have a better choice, like moving into far more better city or country.
+I promised never to eat any takeout from local restaurant, specially those small and dirty. Takeout food from those restaurants are not only junk food lack of nutrients but worse. They are not safe, maybe contain some harmful or chemical materials that would hurt you body. The best food to eat is cooked from yourself before you have a better choice, like moving into far more better city or country.
 
 
 
@@ -21,7 +21,7 @@ After period of trying, I find I always mess up the kitchen because I didn't tak
 Cleaning kitchen is the invisible cost of cooking. You only make a half promise to cook yourself if you don't clean the kitchen.
 
 
-One friends once told me that when you decided to do a business, you have to consider both the extra cost like transport and the profit of commodity itself. So is cook. When you've promised to cook everyday,  cleaning kitchen is your extra cost. Promising cooking yourself means you make a promise to clean kitchen.
+A friend once told me that when you decided to do a business, you have to consider both the extra cost like transport and the profit of commodity itself. So is cook. When you've promised to cook everyday,  cleaning kitchen is your extra cost. Promising cooking yourself means you make a promise to clean kitchen.
 
 
 
