@@ -5,7 +5,7 @@ description:
 categories: [blog]
 ---
 
-Ancient Chinese love nature and love natural philosophy more. They thought human beings and the society should follow the rules of nature to behave and act. This truth had kept thousands of years, at least by Chinese philosophers, artists and writers though, modern China has abandoned this philosophy or value completely, and turned to the rules based on money and power.
+Ancient Chinese loved nature and natural philosophy more. They thought human beings and the society should follow the rules of nature to behave and act. This truth had kept thousands of years, at least by Chinese philosophers, artists and writers though, modern China has abandoned this philosophy and value completely, and turned to the rules based on money and power.
 
 Ancient Chinese people were lovely nevertheless, and the spirit of truly loving nature was precious. Though using it as dominant law for almost everything including human itself is totally undesirable.
 
