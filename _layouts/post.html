@@ -40,7 +40,7 @@ layout: default
       <div class="post-info">
         <div class="pure-g post-info">
           <div class="pure-u-1-2 post-date">{{ page.date | date: "%Y" }} / {{ page.date | date: "%m" }} / {{ page.date | date: "%d" }}</div>
-          <div class="pure-u-1-2 post-author"><a href="/about">{{ site.author.name }}</a></div>
+          <div class="pure-u-1-2 post-author"><a href="/blog/{{lang}}">{{ site.author.name }}</a></div>
         </div>
           {% if page.description %}
           <p class="post-intro">{{page.description}}</p>
