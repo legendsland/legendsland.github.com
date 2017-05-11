@@ -1,37 +1,36 @@
 ---
 layout: default
-title: Blog
+title: Yiannis Zhang
 category: blog
 ---
 <div id="main">
 
-  <div class="header">
-    <blockquote>音乐, 程序, 写作, 和有关爱的一切</blockquote>
-  </div>
-
-  <div class="content">
-
-<div class="pure-menu pure-menu-open pure-menu-horizontal">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li class="pure-menu-selected"><a href="/blog">Blog</a></li>
-	<li class="pure-menu-selected"><a href="/blog/cn">中文</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
-</div>
-
-    <div class="pure-menu pure-menu-open">
-      <ul class="entries">
-    		{% for post in site.categories.cn %}
-    		  <li><a href="{{ post.url }}">
-    		        <h4>{{ post.title }}</h4>
-                <p class="post-intro">{{ post.description }}</p>
-    		    </a>
-    		  </li>
-    		{% endfor %}
-    	</ul>
+    <div class="header">
+        <h3>Yiannis Zhang's Blog</h3>
     </div>
-  </div>
+
+    <div class="content">
+
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <ul>
+                <li><a href="/">EN</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+
+        <div class="pure-menu pure-menu-open">
+            <ul class="entries">
+                {% for post in site.categories.cn %}
+                <li><a href="{{ post.url }}">
+                        <h4>{{ post.title }}</h4>
+                        <p class="post-intro">{{ post.description }}</p>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
 
   <div class="footer">
   </div>

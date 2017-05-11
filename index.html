@@ -1,65 +1,40 @@
 ---
 layout: default
-title: Home
+title: Yiannis Zhang
+category: blog
 ---
- <div class="header">
-    <blockquote>Yiannis Chang's(张懿) homepage</blockquote>
-  </div>
+<div id="main">
 
-<div class="content">
-  <div class="pure-menu pure-menu-open pure-menu-horizontal">
-      <ul>
-          <li class="pure-menu-selected"><a href="#">Home</a></li>
-          <li><a href="/blog">Blog</a></li>
-	  <li><a href="/blog/cn">中文</a></li>
-          <li><a href="/about">About</a></li>
-      </ul>
-      <img src="/assets/images/eiffel.jpg"></img>
-  </div>
-</div>
+    <div class="header">
+        <h3>Yiannis Zhang's Blog</h3>
+    </div>
 
-<div class='comments', style='display:none;'>
+    <div class="content">
 
-<script>
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <ul>
+                <li><a href="/blog/cn">中文</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
 
-  // get lastest comments from commits. 
-  // or send email from js, but it seems impossible.
+        <div class="pure-menu pure-menu-open">
+            <ul class="entries">
+                {% for post in site.categories.blog %}
+                {% unless post.categories contains 'cn' %}
+                <li><a href="{{ post.url }}">
+                    <h4>{{ post.title }}</h4>
+                    <p class="post-intro">{{ post.description }}</p>
+                </a>
+                </li>
+                {% endunless %}
+                {% endfor %}
+            </ul>
+        </div>
 
-  $.get('https://api.github.com/repos/oc-github/gt-cmt/commits', function (data) {
+    </div>
 
-     var commits = data; //github returns objects array
-
-     for(var i=0,j=0; i<commits.length && j<5; ++i) {
-
-       var c = commits[i].commit;
-       var url = commits[i].url;
-
-       // get first 5 with commit message is 'new comment'
-       if( c.message === 'new comment' ) {
-
-           ++j;
-          // get commit detailed data
-          $.get(url, function (data) {
-            var patch = (data.files)[0].patch; //github return object
-
-            $.each( patch.split('\n'), function(i, v) {
-
-              // look for addition line
-              if( v[0] === '+' ) {
-                var comments = JSON.parse( v.substring(1, v.length) );
-                var last_comment = comments[comments.length-1];
-                $('.comments').append( _.template( tpl.newest, {cmt: last_comment} ) );
-              }
-
-            });
-            
-          });
-        }
-    }
-  });
-
-</script>
+    <div class="footer">
+    </div>
 
 </div>
-
-

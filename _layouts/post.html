@@ -25,22 +25,22 @@ layout: default
 {% endif %}
 
 <div id="layout">
-  <a href="#menu" id="menulink" class="menu-link"> <span></span> </a>
+  <!--<a href="#menu" id="menulink" class="menu-link"> <span></span> </a>-->
 
-  <div id="menu">
-      <div class="pure-menu pure-menu-open">
-          <a class="pure-menu-heading" href="/blog/{{lang}}">Blog &#171;</a>
-          <ul class="toc"></ul>
-      </div>
-  </div>
+  <!--<div id="menu">-->
+      <!--<div class="pure-menu pure-menu-open">-->
+          <!--<a class="pure-menu-heading" href="/blog/{{lang}}">Blog &#171;</a>-->
+          <!--<ul class="toc"></ul>-->
+      <!--</div>-->
+  <!--</div>-->
 
   <div id="main">
     <div class="header">
       <h1>{{page.title}}</h1>
       <div class="post-info">
         <div class="pure-g post-info">
-          <div class="pure-u-1-2 post-date"><a href='/archive.html#{{page.date|date:"%Y"}}'>{{ page.date | date: "%Y" }}</a> / <a href='/archive.html#{{page.date|date:"%Y-%m"}}'>{{ page.date | date: "%m" }}</a> / <a href='/archive.html#{{page.date|date:"%Y-%m"}}'>{{ page.date | date: "%d" }}</div>
-          <div class="pure-u-1-2 post-author"><a href="/about">{{ site.author.name }}</a></div>
+          <div class="pure-u-1-2 post-date">{{ page.date | date: "%Y" }} / {{ page.date | date: "%m" }} / {{ page.date | date: "%d" }}</div>
+          <div class="pure-u-1-2 post-author"><a href="/blog/{{lang}}">{{ site.author.name }}</a></div>
         </div>
           {% if page.description %}
           <p class="post-intro">{{page.description}}</p>
@@ -73,40 +73,40 @@ layout: default
         <a class="post-paginator pure-button pure-button-disabled right" href="#">已经是最后一篇</a>
       {% endif %}
 -->
-      <div class="clear-float"></div>
+      <!--<div class="clear-float"></div>-->
 
 
-    <div class="comments">
+    <!--<div class="comments">-->
 
-     </div>
+     <!--</div>-->
 
 
-  <div class="discussion-bubble">
-    <img class="discussion-bubble-avatar" src="/assets/images/chimp_48.jpg" width="48" height="48">
-    <div class="discussion-bubble-content bubble">
-      <div class="discussion-bubble-inner">
+  <!--<div class="discussion-bubble">-->
+    <!--<img class="discussion-bubble-avatar" src="/assets/images/chimp_48.jpg" width="48" height="48">-->
+    <!--<div class="discussion-bubble-content bubble">-->
+      <!--<div class="discussion-bubble-inner">-->
 
-        <div class="js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview">
+        <!--<div class="js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview">-->
 
-          <div class="tab-content write-content js-write-content">
+          <!--<div class="tab-content write-content js-write-content">-->
 
-            <div class="comment-header normal-comment-header">
-               <textarea name="comment[body]" placeholder="Your id" class=""></textarea>
-            </div>
+            <!--<div class="comment-header normal-comment-header">-->
+               <!--<textarea name="comment[body]" placeholder="Your id" class=""></textarea>-->
+            <!--</div>-->
 
-            <div class="comment-content">
-              <textarea name="comment[body]" placeholder="Leave a comment" class="js-comment-field js-size-to-fit"></textarea>
-            </div>
-          </div>
+            <!--<div class="comment-content">-->
+              <!--<textarea name="comment[body]" placeholder="Leave a comment" class="js-comment-field js-size-to-fit"></textarea>-->
+            <!--</div>-->
+          <!--</div>-->
 
-        </div>
-      </div>
-    </div>
-  </div>
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <div class="comment-add">
-    <button class="button primary js-comment-submit" type="submit">Add Comment</button>
-  </div>
+  <!--<div class="comment-add">-->
+    <!--<button class="button primary js-comment-submit" type="submit">Add Comment</button>-->
+  <!--</div>-->
 
     </div>
 
@@ -118,25 +118,25 @@ layout: default
 
 
 <!-- processing post after loading finish  -->
-<script type="text/javascript" src="/assets/js/post.js"></script>
+<!--<script type="text/javascript" src="/assets/js/post.js"></script>-->
 
-{% if page.math %}
+<!--{% if page.math %}-->
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-                jax: ["input/TeX", "output/HTML-CSS"],
-                tex2jax: {
-                  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
-                  processEscapes: true
-              }
-            });
-</script>
+<!--<script type="text/x-mathjax-config">-->
+<!--MathJax.Hub.Config({-->
+                <!--jax: ["input/TeX", "output/HTML-CSS"],-->
+                <!--tex2jax: {-->
+                  <!--inlineMath: [ ['$','$'], ["\\(","\\)"] ],-->
+                  <!--displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],-->
+                  <!--processEscapes: true-->
+              <!--}-->
+            <!--});-->
+<!--</script>-->
 
 <!-- should put all links at last in case blocked or slow access -->
 <!--script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script-->
 <!--script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-HTML"></script-->
-<script type="text/javascript" src="/assets/js/mathjax/MathJax.js?config=TeX-AMS_HTML"></script>
+<!--<script type="text/javascript" src="/assets/js/mathjax/MathJax.js?config=TeX-AMS_HTML"></script>-->
 
 <!-- load script manually is unnesseary -->
 <!--
@@ -150,6 +150,4 @@ MathJax.Hub.Config({
 <script type="text/javascript" src="/assets/js/mathjax/jax/output/HTML-CSS/autoload/mtable.js"></script>
 -->
 
-{% endif %}
-
-
+<!--{% endif %}-->
