@@ -1,42 +1,40 @@
 ---
 layout: default
-title: Blog
+title: Yiannis Zhang
 category: blog
 ---
 <div id="main">
 
-  <div class="header">
-    <blockquote>Just sit down and bleed</blockquote>
-  </div>
-
-  <div class="content">
-
-<div class="pure-menu pure-menu-open pure-menu-horizontal">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li class="pure-menu-selected"><a href="/blog">Blog</a></li>
-	<li class="pure-menu-selected"><a href="/blog/cn/">中文</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
-</div>
-
-    <div class="pure-menu pure-menu-open">
-      <ul class="entries">
-    		{% for post in site.categories.blog %}
-		{% unless post.categories contains 'cn' %}
-    		  <li><a href="{{ post.url }}">
-    		        <h4>{{ post.title }}</h4>
-                <p class="post-intro">{{ post.description }}</p>
-    		    </a>
-    		  </li>
-		  {% endunless %}
-    		{% endfor %}
-    	</ul>
+    <div class="header">
+        Yiannis Zhang's Blog
     </div>
-  </div>
 
-  <div class="footer">
-  </div>
+    <div class="content">
+
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <ul>
+                <li><a href="/blog/cn">中文</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+
+        <div class="pure-menu pure-menu-open">
+            <ul class="entries">
+                {% for post in site.categories.blog %}
+                {% unless post.categories contains 'cn' %}
+                <li><a href="{{ post.url }}">
+                    <h4>{{ post.title }}</h4>
+                    <p class="post-intro">{{ post.description }}</p>
+                </a>
+                </li>
+                {% endunless %}
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+    </div>
 
 </div>
-

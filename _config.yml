@@ -3,10 +3,12 @@ markdown:      kramdown
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
 
 pygments: true
-highlighter: pyments
+highlighter: pygments
 
 redcarpet:
   extensions: []
+
+gems: [jekyll-gist]
 
 kramdown:
   input: GFM
@@ -21,7 +23,7 @@ gh-token: 7c6ff84c0dcf15f18aece934fd332006d92f52bd
 title:           
 feed:             /atom.xml
 author:
-    name:     "Yiannis Chang"
+    name:     "Yiannis Zhang"
     email:    yiannis.chang@gmail.com
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

@@ -230,4 +230,4 @@
   }
   else if (window.console)
     console.log("Live.js doesn't support the file protocol. It needs http.");    
-})();
+)();
